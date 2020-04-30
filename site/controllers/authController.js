@@ -1,6 +1,8 @@
 const bcrypt = require("bcryptjs");
 const passport = require("passport");
 const mongoose = require("mongoose");
+const sendAuthMail = require("./handlers/authMail");
+const jwt = require("jsonwebtoken");
 
 const User = require("../models/User");
 const saltRounds = 10;
@@ -13,16 +15,11 @@ exports.register = function (req, res) {
 };
 
 exports.postRegister = function (req, res) {
-  const {
-    username,
-    firstname,
-    lastname,
-    email,
-    password,
-    password2,
-  } = req.body;
+  let { username, firstname, lastname, email, password, password2 } = req.body;
 
   let errors = [];
+
+  email = email.toLowerCase();
 
   if (
     !username ||
@@ -81,7 +78,11 @@ exports.postRegister = function (req, res) {
           newUser
             .save()
             .then((user) => {
-              req.flash("success_msg", "You are now registered and can log in");
+              sendAuthMail(user);
+              req.flash(
+                "success_msg",
+                "A confirmation link has been sent to your email"
+              );
               res.redirect("/user/login");
             })
             .catch((err) => console.log(err));
@@ -109,4 +110,18 @@ exports.logout = function (req, res) {
   req.logout();
   req.flash("success_msg", "You are logged out");
   res.redirect("/users/login");
+};
+
+exports.confirm = async (req, res) => {
+  try {
+    const { userId } = jwt.verify(req.params.token, process.env.EMAIL_SECRET);
+
+    await User.findOneAndUpdate({ _id: userId }, { $set: { confirmed: true } });
+  } catch (err) {
+    return res.send("Something went wrong");
+  }
+
+  req.flash("success_msg", "Your mail was confirmed");
+  res.redirect("/user/login");
+  return res.redirect("http://localhost:3000/user/login");
 };

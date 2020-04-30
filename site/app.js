@@ -1,4 +1,5 @@
 const createError = require("http-errors");
+require("dotenv").config();
 const path = require("path");
 const logger = require("morgan");
 const express = require("express");
@@ -73,5 +74,4 @@ app.use("/api/yadda", require("./routes/yadda.js"));
 app.use(function (req, res, next) {
   res.status("404").send({ message: "invalid request" });
 });
-
 module.exports = app;
