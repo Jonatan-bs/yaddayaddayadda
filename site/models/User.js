@@ -12,7 +12,7 @@ const UserSchema = new mongoose.Schema({
   image: {
     type: String,
   },
-  handle: {
+  username: {
     type: String,
     required: true,
     unique: true,

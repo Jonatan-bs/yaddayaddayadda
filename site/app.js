@@ -1,7 +1,6 @@
 const createError = require("http-errors");
 const path = require("path");
 const logger = require("morgan");
-
 const express = require("express");
 const mongoose = require("mongoose");
 const passport = require("passport");
@@ -32,6 +31,8 @@ app.locals.pretty = app.get("env") === "development"; // pretty print html
 
 // view engine setup pug and static
 app.use(express.static(path.join(__dirname, "public")));
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "pug");
 
 // Express body parser
 app.use(express.urlencoded({ extended: true }));
@@ -64,7 +65,8 @@ app.use(function (req, res, next) {
 });
 
 // Routes
-app.use("/api/user", require("./routes/user.js"));
+app.use("/user", require("./routes/user.js"));
+app.use("/", require("./routes/index.js"));
 app.use("/api/yadda", require("./routes/yadda.js"));
 
 // catch 404 and forward to error handler
