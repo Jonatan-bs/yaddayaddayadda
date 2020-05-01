@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const YaddaSchema = new mongoose.Schema({
   userID: {
     type: String,
-    // required: true,
+    required: true,
   },
   active: {
     type: Boolean,

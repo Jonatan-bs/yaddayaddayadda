@@ -68,7 +68,7 @@ app.use(function (req, res, next) {
 // Routes
 app.use("/user", require("./routes/user.js"));
 app.use("/", require("./routes/index.js"));
-app.use("/api/yadda", require("./routes/yadda.js"));
+app.use("/yadda", require("./routes/yadda.js"));
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
