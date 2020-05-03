@@ -14,7 +14,7 @@ exports.register = function (req, res) {
   });
 };
 
-exports.postRegister = function (req, res) {
+exports.postRegister = async function (req, res) {
   let { username, firstname, lastname, email, password, password2 } = req.body;
 
   let errors = [];
@@ -36,9 +36,9 @@ exports.postRegister = function (req, res) {
     errors.push({ msg: "Passwords do not match" });
   }
 
-  if (password.length < 9) {
-    errors.push({ msg: "Password must be at least 9 characters" });
-  }
+  // if (password.length < 9) {
+  //   errors.push({ msg: "Password must be at least 9 characters" });
+  // }
 
   if (errors.length > 0) {
     res.render("register", {
@@ -51,7 +51,8 @@ exports.postRegister = function (req, res) {
       password2,
     });
   } else {
-    User.findOne({ email: email }).then(function (user) {
+    try {
+      const user = await User.findOne({ email: email });
       if (user) {
         errors.push({ msg: "Email already exists" });
         res.render("register", {
@@ -72,23 +73,31 @@ exports.postRegister = function (req, res) {
           password,
         });
 
-        bcrypt.hash(newUser.password, saltRounds, function (err, hash) {
-          if (err) throw err;
-          newUser.password = hash;
-          newUser
-            .save()
-            .then((user) => {
-              sendAuthMail(user);
-              req.flash(
-                "success_msg",
-                "A confirmation link has been sent to your email"
-              );
-              res.redirect("/user/login");
-            })
-            .catch((err) => console.log(err));
-        });
+        let hash = await bcrypt.hash(newUser.password, saltRounds);
+        newUser.password = hash;
+
+        let userObj = await newUser.save();
+
+        sendAuthMail(userObj);
+
+        req.flash(
+          "success_msg",
+          "A confirmation link has been sent to your email"
+        );
+        res.redirect("/user/login");
       }
-    });
+    } catch (err) {
+      errors.push({ msg: "Someting went wrong" });
+      res.render("register", {
+        errors,
+        firstname,
+        lastname,
+        username,
+        email,
+        password,
+        password2,
+      });
+    }
   }
 };
 
