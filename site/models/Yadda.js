@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const YaddaSchema = new mongoose.Schema({
-  userID: {
+  user: {
     type: String,
     required: true,
   },
@@ -21,7 +21,7 @@ const YaddaSchema = new mongoose.Schema({
       },
     },
   ],
-  parentID: {
+  parent: {
     type: String,
   },
   date: {

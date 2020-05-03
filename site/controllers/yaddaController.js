@@ -6,9 +6,9 @@ const Yadda = require("../models/Yadda");
 exports.create = function (req, res) {
   const { text, images, parentID, sponsored, tags, likes } = req.body;
 
-  let userID;
+  let user;
   if (req.user) {
-    userID = req.user._id;
+    user = req.user._id;
   }
 
   // Create new yadda object
@@ -19,7 +19,7 @@ exports.create = function (req, res) {
     sponsored,
     tags,
     likes,
-    userID: userID,
+    user,
   });
 
   //Save Yadda if mongoose Validation succeeds
@@ -33,4 +33,8 @@ exports.create = function (req, res) {
       req.flash("error_msg", "Something went wrong");
       res.redirect(req.url);
     });
+};
+
+exports.index = function (req, res) {
+  Yadda.find();
 };

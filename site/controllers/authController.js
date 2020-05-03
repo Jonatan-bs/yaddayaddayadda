@@ -123,14 +123,31 @@ exports.logout = function (req, res) {
 
 exports.confirm = async (req, res) => {
   try {
-    const { userId } = jwt.verify(req.params.token, process.env.EMAIL_SECRET);
+    const { userId } = await jwt.verify(
+      req.params.token,
+      process.env.EMAIL_SECRET
+    );
 
-    await User.findOneAndUpdate({ _id: userId }, { $set: { confirmed: true } });
+    const user = await User.findById(userId);
+
+    if (!user) throw "user doesn't exist";
+
+    let confirmed;
+    if (!user.confirmed) {
+      try {
+        confirmed = await User.updateOne(
+          { _id: userId },
+          { $set: { confirmed: true } }
+        );
+      } catch {
+        throw "Something went wrong";
+      }
+    }
+
+    req.flash("success_msg", "Your mail was confirmed");
   } catch (err) {
-    return res.send("Something went wrong");
+    req.flash("error_msg", err);
   }
 
-  req.flash("success_msg", "Your mail was confirmed");
   res.redirect("/user/login");
-  return res.redirect("http://localhost:3000/user/login");
 };
