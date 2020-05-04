@@ -6,8 +6,10 @@ html
     script(src='/scripts/frontpage/index.js')  
     body
       block content
+        include partials/messages
         h1= title
         p Welcome to #{a}
+        include partials/searchBar
         include partials/addYadda
         include partials/timeline
 

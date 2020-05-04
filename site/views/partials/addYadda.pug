@@ -1,7 +1,8 @@
 block content
-    include messages
     form(method='POST' action='/yadda')
-        textarea#email.form-control(placeholder='Whats on your mind?' name='text')
-        div.form-group
+        textarea(placeholder='Whats on your mind?' name='text')
+        input#tags(placeholder='Add tags' name='tags' type='text')
+        p#tagDisplay
+        
         button.btn.btn-primary(type='submit') Add yadda 
     
