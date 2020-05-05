@@ -118,7 +118,7 @@ exports.postLogin = function (req, res, next) {
 exports.logout = function (req, res) {
   req.logout();
   req.flash("success_msg", "You are logged out");
-  res.redirect("/users/login");
+  res.redirect("/user/login");
 };
 
 exports.confirm = async (req, res) => {

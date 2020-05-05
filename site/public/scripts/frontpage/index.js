@@ -8,10 +8,8 @@ document.addEventListener("click", (e) => {
     e.preventDefault();
 
     const searchForm = document.getElementById("searchForm");
-
-    const type = searchForm.querySelector("select").value;
+    const type = 'searchForm.querySelector("select").value';
     const search = searchForm.querySelector("input").value;
-    console.log(type, search);
     window.location.href = "/search/" + type + "/" + search;
   }
 });

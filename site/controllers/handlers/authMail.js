@@ -2,12 +2,11 @@ const nodemailer = require("nodemailer");
 const jwt = require("jsonwebtoken");
 
 module.exports = async (user) => {
-  // create reusable transporter object using the default SMTP transport
   let transporter = nodemailer.createTransport({
     service: process.env.EMAIL_SERVICE,
     auth: {
-      user: process.env.EMAIL_USERNAME, // generated ethereal user
-      pass: process.env.EMAIL_PASSWORD, // generated ethereal password
+      user: process.env.EMAIL_USERNAME,
+      pass: process.env.EMAIL_PASSWORD,
     },
   });
   // Create jwt url and send mail
@@ -18,7 +17,7 @@ module.exports = async (user) => {
       },
       process.env.EMAIL_SECRET,
       {
-        expiresIn: "1d",
+        expiresIn: "10d",
       }
     );
 

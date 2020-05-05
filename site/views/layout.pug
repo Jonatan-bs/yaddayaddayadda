@@ -3,18 +3,20 @@ html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css', typedot="module")
+    script(src='/scripts/frontpage/index.js')  
+
   body
     header
       nav
         .logo
-          img(src='../public/images/yadda-normal.png' alt='')
+          img(src='../images/yadda-normal.png' alt='')
         .profilepic
           a(href='#')
-            img(src='../public/images/profile.jpg' alt='')
+            img(src='../images/profile.jpg' alt='')
         .navmiddle
           ul
             li
               a(href='#') Settings
             li
-              a(href='#') Logout
+              a(href='user/logout') Logout
     block content

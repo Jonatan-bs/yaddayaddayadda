@@ -13,14 +13,17 @@ const YaddaSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  images: [
-    {
-      publicId: {
-        type: String,
-        required: true,
-      },
-    },
-  ],
+  image: {
+    type: String,
+  },
+  // images: [
+  //   {
+  //     publicId: {
+  //       type: String,
+  //       required: true,
+  //     },
+  //   },
+  // ],
   parent: {
     type: String,
   },

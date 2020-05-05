@@ -1,16 +1,27 @@
-doctype html
-html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-    script(src='/scripts/frontpage/index.js')  
-    body
-      block content
-        include partials/messages
-        h1= title
-        p Welcome to #{a}
-        include partials/searchBar
-        include partials/addYadda
-        include partials/timeline
+extends layout
+
+block content
+  main.mainpage
+    section.profilementions
+      .profilebox
+        .pPicture
+          img(src='../images/placeholder.jpg')
+        .profileName
+          h2 Bailey Johnson
+          h3 @baileydrinks
+        .followingfollowers
+          .following
+            h4 Following
+            h5 731
+          .followers
+            h4 Followers
+            h5 121
+    section.feed
+      include partials/search
+      include partials/addYadda
+
+      include partials/feed
+      include partials/yaddaSponsored
+  
 
 
