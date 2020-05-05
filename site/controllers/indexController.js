@@ -39,7 +39,7 @@ exports.index = function (req, res) {
 };
 
 exports.frontpage = async (req, res) => {
-  const yaddas = await Yadda.find({});
+  const yaddas = await Yadda.find({}).populate("user");
   res.render("index", {
     title: "Frontpage",
     yaddas,

@@ -4,6 +4,7 @@ const YaddaSchema = new mongoose.Schema({
   user: {
     type: String,
     required: true,
+    ref: "User",
   },
   active: {
     type: Boolean,

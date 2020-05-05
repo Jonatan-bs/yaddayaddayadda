@@ -4,22 +4,22 @@
         .yaddaBox
           .yaddaUser
             a(href='#')
-              h2 Skye Montgomery
-            h3 @livingskye
+              h2
+                = yadda.user.firstname + " " + yadda.user.lastname
+            h3 
+              = "@" + yadda.user.username
           .yaddaText
             p
               = yadda.text
           if yadda.image
             img.yaddaImg(src='../images/doggo.gif' alt='')
-          .yaddaTags
-            a(href='#')
-              span #supermario
-            a(href='#')
-              span #lego
-            a(href='#')
-              span #nintendo
-            a(href='#')
-              span #ad
+
+          each tag in yadda.tags
+            .yaddaTags
+              a(href='#')
+                span 
+                  = "#" + tag
+
           .yaddaInfo
             .likesandreplies
               div
