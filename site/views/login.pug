@@ -1,8 +1,141 @@
 extends layout
 
 block content
+  main.mainpage
+    section.profilementions
+      .profilebox
+        .pPicture
+          img(src='../public/images/placeholder.jpg')
+        .profileName
+          h2 Bailey Johnson
+          h3 @baileydrinks
+        .followingfollowers
+          .following
+            h4 Following
+            h5 731
+          .followers
+            h4 Followers
+            h5 121
+    section.feed
+      .searchbar
+        form(action='index.html' method='post')
+          .writingSearch
+            div #
+            input(type='text' name='' value='' placeholder='Type...')
+      .writingYadda
+        form(action='index.html' method='post')
+          .writingYaddaInner
+            textarea(name='name' rows='8' cols='80' placeholder='Type...')
+          .tagsandsend
+            .addtags
+              input(type='text' name='' value='' placeholder='+ add tags')
+            .postYadda
+              a(href='#')
+                img(src='../public/images/post.png' alt='')
+              button(type='button' name='button') Post Yadda
+      .Yadda
+        .profilePicYadda
+          img(src='../public/images/profile.jpg' alt='')
+        .yaddaBox
+          .yaddaUser
+            a(href='#')
+              h2 Skye Montgomery
+            h3 @livingskye
+          .yaddaText
+            p
+              | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc lacus ex, luctus convallis ornare rutrum, iaculis nec mauris. Donec ligula tellus, imperdiet nec amet.
+          img.yaddaImg(src='../public/images/doggo.gif' alt='')
+          .yaddaTags
+            a(href='#')
+              span #supermario
+            a(href='#')
+              span #lego
+            a(href='#')
+              span #nintendo
+            a(href='#')
+              span #ad
+          .yaddaInfo
+            .likesandreplies
+              div
+                img(src='../public/images/heart.png')
+                h3 Likes (4)
+              div
+                img(src='../public/images/reply.png')
+                h3 Replies (2)
+            .yaddaDate
+              h3 2 May 2020 - 10:32PM
+      hr
+      .sponsoredYadda
+        .profilePicYadda
+          img(src='../public/images/lego.jpg' alt='')
+        .yaddaBox
+          .yaddaUser
+            a(href='#')
+              h2 The Lego Company
+            span (sponsored)
+            h3 @lego
+          .yaddaText
+            p
+              | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc lacus ex, luctus convallis ornare rutrum, iaculis nec mauris. Donec ligula tellus, imperdiet nec amet.
+          a(href='#')
+            img.yaddaImg(src='../public/images/legos.jpg' alt='')
+          .yaddaTags
+            a(href='#')
+              span #supermario
+            a(href='#')
+              span #lego
+            a(href='#')
+              span #nintendo
+            a(href='#')
+              span #ad
+          .yaddaInfo
+            .likesandreplies
+              div
+                img(src='../public/images/heart.png')
+                h3 Likes (4)
+              div
+                img(src='../public/images/reply.png')
+                h3 Replies (2)
+      hr
+      .Yadda
+        .profilePicYadda
+          img(src='../public/images/placeholder.jpg' alt='')
+        .yaddaBox
+          .yaddaUser
+            a(href='#')
+              h2 Bailey Johnson
+            h3 @baileydrinks
+          .yaddaText
+            p
+              | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc lacus ex, luctus convallis ornare rutrum, iaculis nec mauris. Donec ligula tellus, imperdiet nec amet.
+          .yaddaTags
+            a(href='#')
+              span #supermario
+            a(href='#')
+              span #lego
+            a(href='#')
+              span #nintendo
+            a(href='#')
+              span #ad
+          .yaddaInfo
+            .likesandreplies
+              div
+                img(src='../public/images/heart.png')
+                h3 Likes (4)
+              div
+                img(src='../public/images/reply.png')
+                h3 Replies (2)
+            .yaddaDate
+              h3 2 May 2020 - 10:32PM
+      hr
+
+
+
+
+
+
   include partials/messages
-  
+
   .main.container
     .row
       .col-md-6.col-md-offset-3
@@ -16,4 +149,4 @@ block content
           div.form-group
             label(for='pw') Password:
             input#pw.form-control(type='password' name='password' value=`${ password ? password: '' }`)
-          button.btn.btn-primary(type='submit') Login 
+          button.btn.btn-primary(type='submit') Login

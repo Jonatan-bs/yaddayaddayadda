@@ -4,4 +4,17 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css', typedot="module")
   body
+    header
+      nav
+        .logo
+          img(src='../public/images/yadda-normal.png' alt='')
+        .profilepic
+          a(href='#')
+            img(src='../public/images/profile.jpg' alt='')
+        .navmiddle
+          ul
+            li
+              a(href='#') Settings
+            li
+              a(href='#') Logout
     block content
