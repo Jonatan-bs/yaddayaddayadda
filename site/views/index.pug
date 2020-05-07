@@ -1,11 +1,11 @@
 extends layout
-
 block content
+  -console.log(users)
   main.mainpage
     section.profilementions
       .profilebox
         .pPicture
-          img(src='../images/placeholder.jpg')
+          img(src='/../images/placeholder.jpg')
         .profileName
           h2 Bailey Johnson
           h3 @baileydrinks
@@ -19,7 +19,6 @@ block content
     section.feed
       include partials/search
       include partials/addYadda
-
       include partials/feed
       include partials/yaddaSponsored
   

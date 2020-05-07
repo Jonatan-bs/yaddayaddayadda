@@ -1,6 +1,6 @@
 .Yadda
         .profilePicYadda
-          img(src='../images/profile.jpg' alt='')
+          img(src='/../images/profile.jpg' alt='')
         .yaddaBox
           .yaddaUser
             a(href='#')
@@ -12,22 +12,30 @@
             p
               = yadda.text
           if yadda.image
-            img.yaddaImg(src='../images/doggo.gif' alt='')
+            img.yaddaImg(src='/../images/doggo.gif' alt='')
 
           each tag in yadda.tags
             .yaddaTags
-              a(href='#')
+              a(href='/search/tag/' + tag)
                 span 
                   = "#" + tag
 
           .yaddaInfo
             .likesandreplies
               div
-                img(src='../images/heart.png')
-                h3 Likes (4)
+                if yadda.likes.includes(userId)
+                  img.like(src='/../images/heart.png')
+                else
+                  img.like(src='/../images/heart2.png')
+            
+                h3.like
+                  = "Likes (" + yadda.likes.length+ ")"
               div
-                img(src='../images/reply.png')
+                img(src='/../images/reply.png')
                 h3 Replies (2)
+              input(type="hidden" value=yadda._id)
             .yaddaDate
-              h3 2 May 2020 - 10:32PM
+              h3 
+                = yadda.dateFormatted
+
 <hr>

@@ -5,11 +5,13 @@ block content
             textarea(name='text' rows='8' cols='80' placeholder='Whats on your mind?')
           .tagsandsend
             .addtags
-              input(type='text' name='tags' value='' placeholder='+ add tags')
+              input#tags(type='text' name='tags' value='' placeholder='+ add tags')
             .postYadda
               a(href='#')
-                img(src='../images/post.png' alt='')
+                img(src='/../images/post.png' alt='')
               button(type='submit' name='button') Post Yadda
+          p#tagDisplay
+
   
     //- form(method='POST' action='/yadda')
     //-     textarea(placeholder='Whats on your mind?' name='text')
@@ -17,4 +19,4 @@ block content
     //-     p#tagDisplay
         
     //-     button.btn.btn-primary(type='submit') Add yadda 
-    
+     

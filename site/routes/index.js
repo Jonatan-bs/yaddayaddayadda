@@ -8,5 +8,6 @@ router.get("/", ensureAuthenticated, index.frontpage);
 router.get("/search/:type/:search", ensureAuthenticated, index.search);
 
 router.post("/yadda", index.createYadda);
+router.post("/yadda/like", index.likeYadda);
 
 module.exports = router;

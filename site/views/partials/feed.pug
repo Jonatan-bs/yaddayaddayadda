@@ -1,4 +1,15 @@
 block content
-    each yadda in yaddas
-        include yadda
+    if yaddas.length
+        each yadda in yaddas
+            include yadda
+    else if users.length
+        each user in users
+            include user
+    else
+        if search 
+            p No results 
+        else   
+            p No yaddas
+
+         
     

@@ -8,8 +8,10 @@ document.addEventListener("click", (e) => {
     e.preventDefault();
 
     const searchForm = document.getElementById("searchForm");
-    const type = 'searchForm.querySelector("select").value';
-    const search = searchForm.querySelector("input").value;
+    let type = searchForm.querySelectorAll("input")[0].checked;
+    type = type ? "tag" : "person";
+
+    const search = searchForm.querySelectorAll("input")[1].value;
     window.location.href = "/search/" + type + "/" + search;
   }
 });
@@ -17,9 +19,7 @@ document.addEventListener("click", (e) => {
 //Tags
 window.addEventListener("load", () => {
   const tags = document.querySelector("input#tags");
-  console.log(tags);
   if (tags) {
-    console.log("s");
     tags.addEventListener("input", () => {
       let tagsArr = tags.value.split(" ");
       const tagDisplay = document.getElementById("tagDisplay");
@@ -32,6 +32,22 @@ window.addEventListener("load", () => {
       });
 
       tagDisplay.textContent = tagString;
+    });
+  }
+});
+
+// Like
+document.addEventListener("click", () => {
+  if (event.target.matches(".like")) {
+    const id = event.target.parentNode.parentNode.querySelector("input").value;
+    fetch("/yadda/like", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ id }),
+    }).then(() => {
+      location.reload();
     });
   }
 });

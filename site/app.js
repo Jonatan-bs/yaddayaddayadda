@@ -44,7 +44,7 @@ app.use(logger("dev"));
 app.use(
   require("express-session")({
     // passport initialize
-    secret: "ioeruir!rznbzvmn8768576hdsw&%", // do the keyboard cat
+    secret: "ioeruir!jkæljdklasjdæa&%", // do the keyboard cat
     resave: true, // to create entropy
     saveUninitialized: false,
   })

@@ -2,7 +2,9 @@ block content
     .searchbar
         form
           #searchForm.writingSearch
-            div #
+            //- div #
+            input(type='checkbox' name='searchType'  class="hidden" id="searchType")
+            label(for='searchType')
             input(type='search' name='search' value='' placeholder='Type...')
             button#search(type='submit') Search 
 
