@@ -1,16 +1,17 @@
-include partials/messages
+extends layout
 
-  .main.container
-    .row
-      .col-md-6.col-md-offset-3
-        h1.display-4.m-b-2 Login
 
-        // register form
-        form(method='POST' action='/user/login')
-          div.form-group
-            label(for='email') Email:
-            input#email.form-control(type='email', placeholder='name@email.com' name='email' value=`${ email ? email: '' }`)
-          div.form-group
-            label(for='pw') Password:
-            input#pw.form-control(type='password' name='password' value=`${ password ? password: '' }`)
-          button.btn.btn-primary(type='submit') Login
+
+block content
+  include partials/messages
+    main.mainfront
+      .loginboxfront
+        .loginmentions
+          .loginbox
+            h2 Login
+            form(action='/user/login' method='post')
+              label(for='email') Email:
+              input#email.form-control(type='email', placeholder='name@email.com' name='email' value=`${ email ? email: '' }`)
+              label(for='pw') Password:
+              input#pw.form-control(type='password' name='password' value=`${ password ? password: '' }`)
+              button(type='submit') Login

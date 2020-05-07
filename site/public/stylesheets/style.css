@@ -1,17 +1,19 @@
-body {
+body, html {
   margin: 0;
   font-family: Segoe UI;
   background: #ffffff;
+  height: 100%;
 }
 
 nav {
-  background: #f5c4a3;
+  background: #F5C4A3;
   display: flex;
   justify-content: space-between;
   height: 70px;
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 1
 }
 
 .logo {
@@ -41,7 +43,7 @@ nav {
 nav ul {
   list-style: none;
   display: flex;
-  text-align: right;
+    text-align: right;
   justify-content: flex-end;
 }
 
@@ -58,8 +60,7 @@ nav ul li:last-child {
 
 nav ul li a {
   text-decoration: none;
-  color: #000;
-  text-align: right;
+  color: #000;  text-align: right;
 }
 
 nav ul li a:hover {
@@ -76,7 +77,7 @@ nav ul li a:hover {
 .profilepic img {
   width: ;
   border-radius: 50%;
-  border: 5px solid #f5c4a3;
+  border: 5px solid #F5C4A3;
   width: 80px;
   height: 80px;
 }
@@ -95,7 +96,7 @@ nav ul li a:hover {
 
 .profilebox {
   width: 280px;
-  background: #efefef;
+  background: #EFEFEF;
   height: 428px;
   border-radius: 5px;
   position: fixed;
@@ -111,7 +112,7 @@ nav ul li a:hover {
   height: 220px;
   margin: 0 auto;
   border-radius: 50%;
-  border: 7px solid #f5c4a3;
+  border: 7px solid #F5C4A3;
 }
 
 .profileName {
@@ -128,7 +129,7 @@ nav ul li a:hover {
 
 .profileName h3 {
   margin: 0;
-  color: #f5c4a3;
+  color: #F5C4A3;
   font-size: 18px;
   font-weight: 700;
 }
@@ -159,7 +160,7 @@ nav ul li a:hover {
 .searchbar {
   width: 740px;
   height: 62px;
-  background: #efefef;
+  background: #EFEFEF;
   border-radius: 5px;
   margin-bottom: 15px;
   display: flex;
@@ -177,20 +178,19 @@ nav ul li a:hover {
   justify-content: space-between;
 }
 
-.writingSearch label {
+.writingSearch div {
   width: 55px;
   height: 45px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #f5c4a3;
+  background: #F5C4A3;
   border-radius: 5px 0px 0px 5px;
   font-size: 20px;
   font-weight: 700;
-  cursor: pointer;
 }
 
-.writingSearch input:nth-of-type(2) {
+.writingSearch input {
   width: 644px;
   height: 45px;
   border: 0px;
@@ -202,29 +202,17 @@ nav ul li a:hover {
   font-weight: 700;
   color: #000;
 }
-.writingSearch input:nth-of-type(1):checked ~ label:before {
-  content: "#";
-}
-.writingSearch input:nth-of-type(1):not(:checked) ~ label:before {
-  content: "@";
-}
-.writingSearch input:nth-of-type(1) {
-  display: none;
-}
-.hidden {
-}
 
 .writingYadda {
-  width: 100%;
-  background: #efefef;
+  width: 740px;
+  height: 138px;
+  background: #EFEFEF;
   border-radius: 5px;
   margin-bottom: 15px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 10px;
-  box-sizing: border-box;
 }
 
 .writingYaddaInner {
@@ -291,7 +279,7 @@ nav ul li a:hover {
   width: 120px;
   height: 27px;
   border: 0;
-  background: #f5c4a3;
+  background: #F5C4A3;
   border-radius: 5px;
   font-weight: 700;
   font-family: Segoe UI;
@@ -308,7 +296,7 @@ nav ul li a:hover {
 
 .sponsoredYadda {
   width: 740px;
-  background: #efefef;
+  background: #EFEFEF;
   border-radius: 5px;
   margin-bottom: 15px;
   display: flex;
@@ -324,7 +312,7 @@ nav ul li a:hover {
   width: 69px;
   height: 69px;
   border-radius: 50%;
-  border: 3px solid #f5c4a3;
+  border: 3px solid #F5C4A3;
 }
 
 .yaddaBox {
@@ -349,13 +337,13 @@ nav ul li a:hover {
 .yaddaUser h3 {
   margin: 0;
   font-size: 15px;
-  color: #f5c4a3;
+  color: #F5C4A3;
 }
 
 .yaddaUser span {
   font-size: 15px;
-  color: #f5c4a3;
-  font-weight: 700;
+  color: #F5C4A3;
+  font-weight: 700
 }
 
 .yaddaText p {
@@ -366,7 +354,7 @@ nav ul li a:hover {
 
 .yaddaImg {
   width: 603px;
-  border: 5px solid #f5c4a3;
+  border: 5px solid #F5C4A3;
   margin-bottom: 5px;
   border-radius: 5px;
 }
@@ -382,11 +370,11 @@ nav ul li a:hover {
 
 .yaddaTags a {
   text-decoration: none;
-  color: #f5c4a3;
+  color: #F5C4A3
 }
 
 .yaddaTags span {
-  color: #f5c4a3;
+  color: #F5C4A3;
   font-size: 15px;
   margin-right: 10px;
   font-weight: 700;
@@ -395,7 +383,7 @@ nav ul li a:hover {
 .yaddaInfo {
   display: flex;
   justify-content: space-between;
-  width: 623px;
+  width: 623px
 }
 
 .likesandreplies {
@@ -411,22 +399,249 @@ nav ul li a:hover {
 }
 
 .likesandreplies h3 {
-  cursor: pointer;
   margin: 0;
   font-size: 15px;
   font-weight: 700;
 }
 
 .likesandreplies img {
-  cursor: pointer;
   width: 20px;
   height: 20px;
   margin-right: 5px;
 }
 
-.yaddaDate h3 {
+.yaddaDate h3{
   text-transform: uppercase;
   margin: 0;
   font-size: 15px;
   font-weight: 700;
 }
+
+.mainfront {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background: #ffffff;
+  overflow: auto;
+}
+
+.mask {
+  -webkit-mask:url("https://i.imgur.com/twbsdwZ.png");
+  mask:url("https://i.imgur.com/twbsdwZ.png");
+  -webkit-mask-size:auto 100% no-repeat;
+  mask-size:auto 100% no-repeat;
+  width: 100%;
+  height: 100%;
+}
+
+.happy {
+  width: 100%;
+  height: 100%;
+  background: url("../images/funs.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.infofront h1 {
+  position: absolute;
+  top: 7%;
+  left: 12%;
+  color: #fff;
+  text-shadow: 3px 3px 1px #000;
+  text-transform: uppercase;
+  font-size: 100px;
+  line-height: 90px;
+}
+
+.infofront h1 img {
+  width: 400px;
+  margin-left: 100px;
+  margin-top: -30px
+}
+
+.infofront h1 span {
+  margin-left: 300px;
+}
+
+.infoboxfront {
+  position: absolute;
+  z-index: 2;
+  top: 20%;
+  right: 12%
+}
+
+.infomentions {
+  width: 350px;
+}
+
+.informationbox {
+  width: 350px;
+  background: #efefef;
+  height: 470px;
+  border-radius: 5px;
+  position: fixed;
+  border: 5px solid #F5C4A3;
+  padding: 60px 40px;
+}
+
+.infoName {
+  margin: 0 auto;
+}
+
+.infoName h2 {
+  font-size: 22px;
+  margin: 0;
+  font-weight: 700;
+  color: #F5C4A3;
+}
+
+.infoName h3 {
+  margin: 0;
+  color: #F5C4A3;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.infoName p {
+  width: 320px;
+  margin: 0;
+  margin-left: 30px;
+  padding: 5px;
+}
+
+.infoName a {
+  background: #F5C4A3;
+  padding: 10px 20px;
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 55px;
+  text-decoration: none;
+  color: #000;
+  font-weight: 700;
+  font-size: 16px;
+  border-radius: 5px;
+  width: 250px;
+}
+
+.infoName a:hover {
+  background: #fff;
+  transition: 0.3s;
+}
+
+.loginboxfront {
+  position: absolute;
+  z-index: 2;
+  top: 25%;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+  width: 440px;
+  background: #000;
+}
+
+.loginmentions {
+  width: 440px;
+}
+
+.loginbox {
+  width: 350px;
+  background: #efefef;
+  border-radius: 5px;
+  position: fixed;
+  padding: 60px 40px;
+}
+
+.loginbox h2 {
+  color: #000;
+  font-size: 40px;
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+.loginbox label {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.loginbox input {
+  width: 330px;
+  border: 0px;
+  border-radius: 5px;
+  padding: 10px;
+  font-family: Segoe UI;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+  .loginbox button {
+    background: #F5C4A3;
+    border: 0px;
+    border-radius: 5px;
+    font-weight: 700;
+    padding: 10px;
+    text-align: center;
+    width: 100px;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+
+  .regboxfront {
+    position: absolute;
+    z-index: 2;
+    top: 15%;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    width: 440px;
+    background: #000;
+  }
+
+  .regmentions {
+    width: 440px;
+  }
+
+  .regbox {
+    width: 350px;
+    background: #efefef;
+    border-radius: 5px;
+    position: fixed;
+    padding: 60px 40px;
+  }
+
+  .regbox h2 {
+    color: #000;
+    font-size: 40px;
+    margin: 0;
+    margin-bottom: 20px;
+  }
+
+  .regbox label {
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .regbox input {
+    width: 330px;
+    border: 0px;
+    border-radius: 5px;
+    padding: 10px;
+    font-family: Segoe UI;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+
+  .regbox button {
+    background: #F5C4A3;
+    border: 0px;
+    border-radius: 5px;
+    font-weight: 700;
+    padding: 10px;
+    text-align: center;
+    width: 100px;
+    font-size: 16px;
+    margin-top: 10px;
+  }
