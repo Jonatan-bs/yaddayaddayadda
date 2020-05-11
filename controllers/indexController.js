@@ -164,11 +164,9 @@ exports.followers = async (req, res) => {
 
   const profile = await User.findById(id);
 
-  const users = await User.find({ _id: { $in: profile.following } });
+  const users = await User.find({ following: id });
 
   profile.followers = users.length;
-
-  console.log(users);
 
   res.render("followers", {
     title: "Followers",
@@ -185,9 +183,7 @@ exports.following = async (req, res) => {
 
   const users = await User.find({ _id: { $in: profile.following } });
 
-  profile.followers = users.length;
-
-  console.log(users);
+  profile.followers = await User.countDocuments({ following: { $in: id } });
 
   res.render("following", {
     title: "Following",
@@ -206,28 +202,7 @@ exports.profile = async (req, res) => {
 
   const profile = await User.findById(id);
 
-  profile.followers = await User.count({ following: { $in: id } });
-
-  // let users = [];
-  // const regex = { $regex: new RegExp(search, "i") };
-
-  // switch (type) {
-  //   case "tag":
-  //     queryParams = { tags: { $in: [regex.$regex] } };
-
-  //     yaddas = await Yadda.find(queryParams)
-  //       .sort([["createdAt", -1]])
-  //       .populate("user");
-
-  //     break;
-  //   case "person":
-  //     queryParams = {
-  //       $or: [{ username: regex }, { firstname: regex }, { lastname: regex }],
-  //     };
-  //     users = await User.find(queryParams);
-  //     break;
-  //   default:
-  // }
+  profile.followers = await User.countDocuments({ following: { $in: id } });
 
   res.render("profile", {
     title: "Profile",

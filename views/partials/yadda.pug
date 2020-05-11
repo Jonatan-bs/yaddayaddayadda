@@ -42,13 +42,15 @@
             .yaddaDate
               h3 
                 = yadda.dateFormatted
-            .follow
-                if user.following.includes(yadda.user._id)
-                  form(action=`/follow/${yadda.user._id}` method='POST')
-                    button unfollow
-                else
-                  form(action=`/follow/${yadda.user._id}` method='POST')
-                    button follow
+            
+            if yadda.user._id.toString()!==user._id.toString()
+                .follow
+                    if user.following.includes(yadda.user._id)
+                      form(action=`/follow/${yadda.user._id}` method='POST')
+                        button unfollow
+                    else
+                      form(action=`/follow/${yadda.user._id}` method='POST')
+                        button follow
 
 
 <hr>

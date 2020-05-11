@@ -29,8 +29,6 @@ module.exports = async (user) => {
       subject: "Confirm Email",
       html: `Please click this link to confirm your email: <a href="${url}">${url}</a>`,
     });
-
-    console.log("Confirmation mail was sent");
   } catch (err) {
     console.log("Mail error:", err);
     throw "Error sending confirmation mail";
