@@ -692,3 +692,166 @@ nav ul li a:hover {
     font-size: 16px;
     margin-top: 10px;
   }
+
+  .settings {
+    width: 740px;
+  }
+
+  .settings h1 {
+    font-size: 40px;
+    margin: 0;
+  }
+
+  .settingsbox {
+    background: #EFEFEF;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 15px;
+  }
+
+  .settingsbox h2 {
+    font-size: 20px;
+    margin: 0;
+  }
+
+  .settingsbox h3 {
+    font-size: 15px;
+    margin: 0px;
+    font-weight: 400;
+    margin-top: 5px;
+  }
+
+  .settingsbox input[type=text] {
+    font-family: Segoe UI;
+    border: 0px;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 5px;
+    width: 690px
+  }
+
+  .settingsbox input[type=password] {
+    font-family: Segoe UI;
+    border: 0px;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 5px;
+    width: 690px
+  }
+
+  .settingsbox input[type=email] {
+    font-family: Segoe UI;
+    border: 0px;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 5px;
+    width: 690px
+  }
+
+  .settingsbox input[type=radio] {
+    margin-top: 15px;
+  }
+
+  .settingsbox button {
+    background: #F5C4A3;
+    border: 0px;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100px;
+    font-size: 15px;
+    font-family: Segoe UI;
+    margin-top: 15px;
+  }
+
+  .settingsbox button:hover {
+    cursor: pointer;
+    opacity: 90%;
+  }
+
+  .buttonright {
+    text-align: right;
+  }
+
+  .followfeed {
+    width: 740px;
+  }
+
+  .followfeed h1 {
+    font-size: 40px;
+    margin: 0;
+  }
+
+  .followfeed h1 a {
+    text-decoration: none;
+    color: #F5C4A3;
+  }
+
+  .followfeed h1 a:hover {
+    color: #EFEFEF;
+    cursor: pointer;
+  }
+
+  .followerflex {
+    display: flex;
+    justify-content:space-between;
+    flex-wrap: wrap;
+  }
+
+  .followbox {
+    width: 196px;
+    padding: 15px;
+    background: #EFEFEF;
+    margin-top: 15px;
+    border-radius: 5px;
+    text-align: center;
+  }
+
+  .followbox img {
+    width: 171px;
+    height: 171px;
+    border: 7px solid #F5C4A3;
+    border-radius: 50%;
+    margin-bottom: 5px;
+  }
+
+  .followbox h2 {
+    font-size: 18px;
+    margin: 0;
+    text-align: left;
+  }
+
+  .followbox a {
+    text-decoration: none;
+    color: #000;
+  }
+
+  .followbox a:hover {
+    cursor: pointer;
+    color: #F5C4A3;
+  }
+
+  .followbox h3 {
+    font-size: 15px;
+    color: #F5C4A3;
+    margin: 0;
+    text-align: left;
+  }
+
+  .followbox .followingfollowers {
+    width: 186px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+  }
+
+  .followbox .followingfollowers h4 {
+    margin: 0;
+    margin-top: 10px;
+    font-size: 12px;
+  }
+
+  .followbox .followingfollowers h5 {
+    margin: 0;
+    font-size: 20px;
+  }
