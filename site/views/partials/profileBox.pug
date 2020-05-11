@@ -1,0 +1,21 @@
+.profilebox
+        .pPicture
+            if profile.image
+              img( alt='' style=`background-image:url(https://res.cloudinary.com/kuko/w_80/${profile.image})`)
+            else
+              img(style="background-image:url('/../images/profile.jpg')" alt='')
+        .profileName
+          h2 
+            = profile.firstname + " " +profile.lastname
+          h3 
+            = "@" + profile.username
+        .followingfollowers
+          a(href=`/following/${profile._id}`).following
+            h4 Following
+            h5 
+              = profile.following.length
+          
+          a(href=`/followers/${profile._id}`).followers
+            h4 Followers
+            h5 
+              = profile.followers

@@ -18,21 +18,11 @@ const YaddaSchema = new mongoose.Schema(
     image: {
       type: String,
     },
-    // images: [
-    //   {
-    //     publicId: {
-    //       type: String,
-    //       required: true,
-    //     },
-    //   },
-    // ],
+
     parent: {
       type: String,
     },
-    // date: {
-    //   type: Date,
-    //   default: Date.now,
-    // },
+
     sponsored: {
       type: Boolean,
       default: false,

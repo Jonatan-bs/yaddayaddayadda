@@ -3,20 +3,25 @@ html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css', typedot="module")
+    if user.darkTheme
+      link(rel='stylesheet', href='/stylesheets/darktheme.css', typedot="module")
     script(src='/scripts/frontpage/index.js')  
 
   body
     header
       nav
-        .logo
+        a(href=`/`).logo
           img(src='/../images/yadda-normal.png' alt='')
         .profilepic
-          a(href='#')
-            img(src='/../images/profile.jpg' alt='')
+          a(href=`/profile/${user._id}`)
+            if user.image
+              img( alt='' style=`background-image:url(https://res.cloudinary.com/kuko/w_80/${user.image})`)
+            else
+              img(style="background-image:url('/../images/profile.jpg')" alt='')
         .navmiddle
           ul
             li
-              a(href='#') Settings
+              a(href='/settings') Settings
             li
               a(href='/user/logout') Logout
     block content

@@ -1,0 +1,16 @@
+extends layout
+block content
+
+  main.mainpage
+    section.profilementions
+       include partials/profileBox
+    section.followfeed
+      h1
+        | People
+        a(href=`/profile/${profile._id}`) 
+          = `@${profile.username}`
+        = ` follows(${profile.following.length})`
+        
+      .followerflex
+        each userData in users
+          include partials/userBox

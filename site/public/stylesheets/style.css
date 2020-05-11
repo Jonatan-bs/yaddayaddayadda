@@ -77,11 +77,12 @@ nav ul li a:hover {
 }
 
 .profilepic img {
-  width: ;
   border-radius: 50%;
   border: 5px solid #f5c4a3;
   width: 80px;
   height: 80px;
+  background-size: cover;
+  background-position: center center;
 }
 
 .mainpage {
@@ -627,6 +628,7 @@ nav ul li a:hover {
   font-size: 16px;
 }
 
+<<<<<<< HEAD
 .loginbox button {
   background: #f5c4a3;
   border: 0px;
@@ -714,3 +716,237 @@ div#imgPreview {
   display: flex;
   width: 100%;
 }
+=======
+  .loginbox button {
+    background: #F5C4A3;
+    border: 0px;
+    border-radius: 5px;
+    font-weight: 700;
+    padding: 10px;
+    text-align: center;
+    width: 100px;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+
+  .regboxfront {
+    position: absolute;
+    z-index: 2;
+    top: 15%;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    width: 440px;
+    background: #000;
+  }
+
+  .regmentions {
+    width: 440px;
+  }
+
+  .regbox {
+    width: 350px;
+    background: #efefef;
+    border-radius: 5px;
+    position: fixed;
+    padding: 60px 40px;
+  }
+
+  .regbox h2 {
+    color: #000;
+    font-size: 40px;
+    margin: 0;
+    margin-bottom: 20px;
+  }
+
+  .regbox label {
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .regbox input {
+    width: 330px;
+    border: 0px;
+    border-radius: 5px;
+    padding: 10px;
+    font-family: Segoe UI;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+
+  .regbox button {
+    background: #F5C4A3;
+    border: 0px;
+    border-radius: 5px;
+    font-weight: 700;
+    padding: 10px;
+    text-align: center;
+    width: 100px;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+
+  .settings {
+    width: 740px;
+  }
+
+  .settings h1 {
+    font-size: 40px;
+    margin: 0;
+  }
+
+  .settingsbox {
+    background: #EFEFEF;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 15px;
+  }
+
+  .settingsbox h2 {
+    font-size: 20px;
+    margin: 0;
+  }
+
+  .settingsbox h3 {
+    font-size: 15px;
+    margin: 0px;
+    font-weight: 400;
+    margin-top: 5px;
+  }
+
+  .settingsbox input[type=text] {
+    font-family: Segoe UI;
+    border: 0px;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 5px;
+    width: 690px
+  }
+
+  .settingsbox input[type=password] {
+    font-family: Segoe UI;
+    border: 0px;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 5px;
+    width: 690px
+  }
+
+  .settingsbox input[type=email] {
+    font-family: Segoe UI;
+    border: 0px;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 5px;
+    width: 690px
+  }
+
+  .settingsbox input[type=radio] {
+    margin-top: 15px;
+  }
+
+  .settingsbox button {
+    background: #F5C4A3;
+    border: 0px;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100px;
+    font-size: 15px;
+    font-family: Segoe UI;
+    margin-top: 15px;
+  }
+
+  .settingsbox button:hover {
+    cursor: pointer;
+    opacity: 90%;
+  }
+
+  .buttonright {
+    text-align: right;
+  }
+
+  .followfeed {
+    width: 740px;
+  }
+
+  .followfeed h1 {
+    font-size: 40px;
+    margin: 0;
+  }
+
+  .followfeed h1 a {
+    text-decoration: none;
+    color: #F5C4A3;
+  }
+
+  .followfeed h1 a:hover {
+    color: #EFEFEF;
+    cursor: pointer;
+  }
+
+  .followerflex {
+    display: flex;
+    justify-content:space-between;
+    flex-wrap: wrap;
+  }
+
+  .followbox {
+    width: 196px;
+    padding: 15px;
+    background: #EFEFEF;
+    margin-top: 15px;
+    border-radius: 5px;
+    text-align: center;
+  }
+
+  .followbox img {
+    width: 171px;
+    height: 171px;
+    border: 7px solid #F5C4A3;
+    border-radius: 50%;
+    margin-bottom: 5px;
+  }
+
+  .followbox h2 {
+    font-size: 18px;
+    margin: 0;
+    text-align: left;
+  }
+
+  .followbox a {
+    text-decoration: none;
+    color: #000;
+  }
+
+  .followbox a:hover {
+    cursor: pointer;
+    color: #F5C4A3;
+  }
+
+  .followbox h3 {
+    font-size: 15px;
+    color: #F5C4A3;
+    margin: 0;
+    text-align: left;
+  }
+
+  .followbox .followingfollowers {
+    width: 186px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+  }
+
+  .followbox .followingfollowers h4 {
+    margin: 0;
+    margin-top: 10px;
+    font-size: 12px;
+  }
+
+  .followbox .followingfollowers h5 {
+    margin: 0;
+    font-size: 20px;
+  }
+>>>>>>> fe29a9c97cb52115c147ed9b7aed7531ecadcbc7

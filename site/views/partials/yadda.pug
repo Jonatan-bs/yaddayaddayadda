@@ -1,9 +1,14 @@
-.Yadda
+.Yadda    
         .profilePicYadda
-          img(src='/../images/profile.jpg' alt='')
+          a(href=`/profile/${yadda.user._id}`)
+            if yadda.user.image
+              img( alt='' style=`background-image:url(https://res.cloudinary.com/kuko/w_80/${yadda.user.image})`)
+            else
+              img(style="background-image:url('/../images/profile.jpg')" alt='')
+
         .yaddaBox
           .yaddaUser
-            a(href='#')
+            a(href=`/profile/${yadda.user._id}`)
               h2
                 = yadda.user.firstname + " " + yadda.user.lastname
             h3 
@@ -23,7 +28,7 @@
           .yaddaInfo
             .likesandreplies
               div
-                if yadda.likes.includes(userId)
+                if yadda.likes.includes(user._id)
                   img.like(src='/../images/heart.png')
                 else
                   img.like(src='/../images/heart2.png')
@@ -37,5 +42,13 @@
             .yaddaDate
               h3 
                 = yadda.dateFormatted
+            .follow
+                if user.following.includes(yadda.user._id)
+                  form(action=`/follow/${yadda.user._id}` method='POST')
+                    button unfollow
+                else
+                  form(action=`/follow/${yadda.user._id}` method='POST')
+                    button follow
+
 
 <hr>

@@ -1,0 +1,13 @@
+extends layout
+block content
+  -console.log(users)
+  main.mainpage
+    section.profilementions
+      include partials/profileBox
+            
+    section.feed
+      include partials/feed
+      include partials/yaddaSponsored
+  
+
+
