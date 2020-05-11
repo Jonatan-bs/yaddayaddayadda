@@ -10,7 +10,7 @@ block content
       .regmentions
         .regbox
           h2 Register
-          form(action='/user/login' method='post')
+          form(action='/user/register' method='post')
             label(for='username') Username:
             input#username.form-control(type='text', placeholder='username' name='username' value=`${ username ? username: '' }`)
             label(for='firstname') Firstname:

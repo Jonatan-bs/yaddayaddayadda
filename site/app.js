@@ -12,10 +12,13 @@ const bodyParser = require("body-parser");
 // Passport Config
 require("./config/passport")(passport);
 
+let MONGODB_URI =
+  "mongodb+srv://yadda:1234@yadda-lxawk.mongodb.net/test?retryWrites=true&w=majority";
+
 // DB Config and server connect
 const db = require("./config/keys").mongoURI;
 mongoose
-  .connect("mongodb://localhost:27017/yaddayaddayadda", {
+  .connect(MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
