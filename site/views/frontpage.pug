@@ -1,4 +1,4 @@
-extends layout
+extends layoutPublic
 block content
   main.mainfront
     .mask
@@ -7,7 +7,7 @@ block content
       h1
         | Join
         br
-        img(src='images/yadda_front.png' alt='yaddayaddayadda')
+        img(src='/images/yadda_front.png' alt='yaddayaddayadda')
         br
         span today!
     .infoboxfront
@@ -23,4 +23,4 @@ block content
             p Post pictures and gifs of your favourite funny memes and share them with tags!
             h2 How do you join?
             p Go to the registration page and begin your adventure into the world of Yaddas!
-            a(href='register.html') Join
+            a(href='/user/register') Join

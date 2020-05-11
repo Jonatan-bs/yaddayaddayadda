@@ -12,7 +12,7 @@
             p
               = yadda.text
           if yadda.image
-            img.yaddaImg(src='/../images/doggo.gif' alt='')
+            img.yaddaImg(src=`https://res.cloudinary.com/kuko/w_600/${yadda.image}` alt='')
 
           each tag in yadda.tags
             .yaddaTags
