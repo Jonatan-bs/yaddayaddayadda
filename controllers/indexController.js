@@ -85,7 +85,6 @@ exports.frontpage = async (req, res) => {
       title: "Frontpage",
       yaddas,
       user: req.user,
-      users,
     });
   } else {
     res.render("frontpage", {
