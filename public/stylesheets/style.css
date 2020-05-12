@@ -158,6 +158,7 @@ nav ul li a:hover {
 
 .feed {
   width: 740px;
+  margin-bottom: 15px;
 }
 
 .searchbar {
@@ -949,4 +950,100 @@ div#imgPreview {
     margin: 0;
     font-size: 20px;
   }
->>>>>>> fe29a9c97cb52115c147ed9b7aed7531ecadcbc7
+
+  .MainYadda {
+    width: 740px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-around;
+    border-radius: 5px;
+  }
+
+  .MainYadda .profilePicYadda {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .MainYadda .profilePicYadda .thread {
+    height: 90%;
+    width: 36px;
+  }
+
+
+  .SubYadda {
+    width: 740px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .HighlightYadda {
+    width: 740px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-around;
+    background: #EFEFEF;
+    border-radius: 5px;
+    border-top: 5px solid #F5C4A3;
+    border-bottom: 5px solid #F5C4A3;
+  }
+
+  .thread {
+    width: 33px;
+    border-right: 5px solid #F5C4A3;
+    height: auto;
+  }
+
+  .SubYadda .profilePicYadda {
+    margin-top: 5px;
+  }
+
+  .subyaddaBox {
+    width: 545px;
+    margin-top: 5px;
+  }
+
+  .subyaddaBox .yaddaImg {
+    width: 535px;
+  }
+
+  .subyaddaBox .yaddaInfo {
+    width: 555px;
+  }
+
+  .subyaddaBox .likesandreplies {
+    width: 193px;
+  }
+
+  .mentionsbox {
+    width: 250px;
+    background: #EFEFEF;
+    border-radius: 5px;
+    position: fixed;
+    padding: 15px 15px;
+    padding-bottom: 35px;
+  }
+
+  .mentionsbox h2 {
+    margin: 0;
+    font-size: 30px;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    border-bottom: 3px solid #F5C4A3;
+  }
+
+  .mentionsbox a {
+    color: #F5C4A3;
+    font-size: 20px;
+    margin: 0;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    margin-right: 10px;
+  }
+
+  .mentionsbox a:hover {
+    color: #F5C4A3;
+    cursor: pointer;
+    border-bottom: 2px solid #F5C4A3;
+  }
