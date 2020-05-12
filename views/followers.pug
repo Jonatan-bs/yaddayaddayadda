@@ -1,6 +1,5 @@
 extends layout
 block content
-  -console.log(users)
   main.mainpage
     section.profilementions
        include partials/profileBox
@@ -10,9 +9,7 @@ block content
         | Followers of
         a(href=`/profile/${profile._id}`) 
           = `@${profile.username}`
-        = `(${profile.followers})`
-
-      .followerflex
-        each userData in users
-          include partials/userBox
+        = `(${profile.followers.length})`
+        
+      include partials/users
        

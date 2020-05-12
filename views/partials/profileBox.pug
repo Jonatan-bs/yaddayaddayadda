@@ -6,7 +6,7 @@
               img(style="background-image:url('/../images/profile.jpg')" alt='')
         .profileName
           h2 
-            = profile.firstname + " " +profile.lastname
+            = profile.fullname
           h3 
             = "@" + profile.username
         .followingfollowers
@@ -18,4 +18,4 @@
           a(href=`/followers/${profile._id}`).followers
             h4 Followers
             h5 
-              = profile.followers
+              = profile.followers.length

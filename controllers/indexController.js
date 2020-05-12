@@ -78,7 +78,10 @@ exports.likeYadda = async function (req, res) {
 exports.frontpage = async (req, res) => {
   const yaddas = await Yadda.find({})
     .sort([["createdAt", -1]])
-    .populate("user");
+    .populate({
+      path: "user",
+      populate: { path: "followers" },
+    });
 
   if (req.user) {
     res.render("index", {
@@ -106,7 +109,10 @@ exports.search = async (req, res) => {
 
       yaddas = await Yadda.find(queryParams)
         .sort([["createdAt", -1]])
-        .populate("user");
+        .populate({
+          path: "user",
+          populate: { path: "followers" },
+        });
 
       break;
     case "person":
@@ -128,68 +134,57 @@ exports.search = async (req, res) => {
 };
 
 exports.settings = async (req, res) => {
-  // let type = req.params.type;
-  // let search = req.params.search;
-  // let yaddas = [];
-  // let users = [];
-  // const regex = { $regex: new RegExp(search, "i") };
-
-  // switch (type) {
-  //   case "tag":
-  //     queryParams = { tags: { $in: [regex.$regex] } };
-
-  //     yaddas = await Yadda.find(queryParams)
-  //       .sort([["createdAt", -1]])
-  //       .populate("user");
-
-  //     break;
-  //   case "person":
-  //     queryParams = {
-  //       $or: [{ username: regex }, { firstname: regex }, { lastname: regex }],
-  //     };
-  //     users = await User.find(queryParams);
-  //     break;
-  //   default:
-  // }
-
   res.render("settings", {
     title: "Settings",
     user: req.user,
   });
 };
 
+// (async () => {
+//   const profile = await User.findOne().populate({
+//     path: "followers following",
+//     populate: { path: "followers following" },
+//   });
+
+//   console.log(profile);
+// })();
 exports.followers = async (req, res) => {
   // let type = req.params.type;
   let id = req.params.id;
 
-  const profile = await User.findById(id);
+  const profile = await User.findById(id).populate({
+    path: "followers following",
+    populate: { path: "followers following" },
+  });
 
-  const users = await User.find({ following: id });
-
-  profile.followers = users.length;
+  console.log(profile);
 
   res.render("followers", {
     title: "Followers",
     user: req.user,
     profile,
-    users,
+    users: profile.followers,
   });
 };
 
 exports.following = async (req, res) => {
   let id = req.params.id;
 
-  const profile = await User.findById(id);
+  const profile = await User.findById(id)
+    .populate("followers")
+    .populate({
+      path: "following",
+      populate: { path: "followers" },
+    });
+  // const users = await User.find({ _id: { $in: profile.following } });
 
-  const users = await User.find({ _id: { $in: profile.following } });
-
-  profile.followers = await User.countDocuments({ following: { $in: id } });
+  // profile.followers = await User.countDocuments({ following: { $in: id } });
 
   res.render("following", {
     title: "Following",
     user: req.user,
     profile,
-    users,
+    users: profile.following,
   });
 };
 
@@ -200,9 +195,7 @@ exports.profile = async (req, res) => {
     .sort([["createdAt", -1]])
     .populate("user");
 
-  const profile = await User.findById(id);
-
-  profile.followers = await User.countDocuments({ following: { $in: id } });
+  let profile = await User.findById(id).populate("followers");
 
   res.render("profile", {
     title: "Profile",
