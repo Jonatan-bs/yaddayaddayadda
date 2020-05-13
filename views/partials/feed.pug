@@ -1,7 +1,6 @@
 include ./yadda.pug
 
 block content
-    -console.log(yaddas)
     if yaddas.length
         each yadda in yaddas
             +yadda(yadda)

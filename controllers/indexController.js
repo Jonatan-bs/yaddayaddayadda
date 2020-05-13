@@ -229,6 +229,7 @@ exports.profile = async (req, res) => {
     user: req.user,
     profile,
     yaddas,
+    users: [],
   });
 };
 
