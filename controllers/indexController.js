@@ -6,7 +6,7 @@ const cld = require("./cloudinaryHandler");
 const upload = require("./handlers/multer");
 
 exports.createYadda = async function (req, res, next) {
-  let { text, image, parentID, sponsored, tags, likes } = req.body;
+  let { text, image, parent, sponsored, tags, likes } = req.body;
 
   let user;
   if (req.user) {
@@ -40,13 +40,19 @@ exports.createYadda = async function (req, res, next) {
   // Create new yadda object
   const newYadda = new Yadda({
     text,
-    parentID,
+    parent,
     sponsored,
     tags,
     likes,
     user,
     image,
   });
+  if (parent) {
+    const yadda = await Yadda.findById(parent);
+    yadda.replyCount++;
+    await yadda.save();
+  }
+
   //Save Yadda if mongoose Validation succeeds
   newYadda
     .save()
@@ -76,24 +82,47 @@ exports.likeYadda = async function (req, res) {
 };
 
 exports.frontpage = async (req, res) => {
-  const yaddas = await Yadda.find({})
-    .sort([["createdAt", -1]])
-    .populate({
-      path: "user",
-      populate: { path: "followers" },
-    });
-
   if (req.user) {
+    const yaddas = await Yadda.find({})
+      .sort([["createdAt", -1]])
+      .populate({
+        path: "user",
+        populate: { path: "followers" },
+      });
+
     res.render("index", {
       title: "Frontpage",
       yaddas,
       user: req.user,
+      users: [],
     });
   } else {
     res.render("frontpage", {
       title: "frontpage",
     });
   }
+};
+
+exports.thread = async (req, res) => {
+  const id = req.params.id;
+
+  let yadda = await Yadda.findById(id).populate({
+    path: "user",
+  });
+
+  const subYaddas = await Yadda.find({ parent: id }).populate({
+    path: "user",
+  });
+
+  let parentYaddas = await yadda.parents(yadda);
+
+  res.render("thread", {
+    title: "Thread",
+    yadda: yadda,
+    user: req.user,
+    subYaddas,
+    parentYaddas,
+  });
 };
 
 exports.search = async (req, res) => {
@@ -156,8 +185,6 @@ exports.followers = async (req, res) => {
     path: "followers following",
     populate: { path: "followers following" },
   });
-
-  console.log(profile);
 
   res.render("followers", {
     title: "Followers",

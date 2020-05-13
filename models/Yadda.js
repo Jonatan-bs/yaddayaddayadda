@@ -27,6 +27,10 @@ const YaddaSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
+    replyCount: {
+      type: Number,
+      default: 0,
+    },
     tags: [
       {
         type: String,
@@ -67,6 +71,47 @@ YaddaSchema.virtual("dateFormatted").get(function () {
   return d + " " + m + " " + y + " - " + h + ":" + min;
 });
 
+YaddaSchema.methods.parents = async function (yadda = this, parentYaddas = []) {
+  if (!yadda.parent) return parentYaddas;
+
+  let parentYadda = await Yadda.findById(yadda.parent).populate({
+    path: "user",
+  });
+
+  parentYaddas.unshift(parentYadda);
+
+  return await parentYadda.parents(parentYadda, parentYaddas);
+};
+
+// YaddaSchema.methods.replyCount = async function (parentId = this.parent) {
+//   return await Yadda.countDocuments({ parent: this._id });
+// };
+
 const Yadda = mongoose.model("Yadda", YaddaSchema, "yadda");
 
+// Yadda.getParents = async function (yadda, parentYaddas = []) {
+//   if (!yadda.parent) return parentYaddas;
+
+//   let parentYadda = await Yadda.findById(yadda.parent).populate({
+//     path: "user",
+//   });
+
+//   parentYaddas.unshift(parentYadda);
+
+//   return await Yadda.getParents(parentYadda, parentYaddas);
+// };
+
+// Yadda.findByIdLean = async (id) => {
+//   let yaddaObj = await Yadda.findById(id);
+
+//   let yadda = await Yadda.findById(id)
+//     .populate({
+//       path: "user",
+//     })
+//     .lean();
+
+//   yadda.replyCount = await yaddaObj.replyCount();
+
+//   return yadda;
+// };
 module.exports = Yadda;

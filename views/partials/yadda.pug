@@ -1,56 +1,233 @@
-.Yadda   
-  .profilePicYadda
-    a(href=`/profile/${yadda.user._id}`)
-      if yadda.user.image
-        img( alt='' style=`background-image:url(https://res.cloudinary.com/kuko/w_80/${yadda.user.image})`)
-      else
-        img(style="background-image:url('/../images/profile.jpg')" alt='')
+mixin yadda(yadda,type) 
+  case type 
+    
+    when 'main'
+      .MainYadda
+        .profilePicYadda
+          a(href=`/profile/${yadda.user._id}`)
+            if yadda.user.image
+              img( alt='' style=`background-image:url(https://res.cloudinary.com/kuko/w_80/${yadda.user.image})`)
+            else
+              img(style="background-image:url('/../images/profile.jpg')" alt='')
+          .thread
+        .yaddaBox
+          .yaddaUser
+            a(href=`/profile/${yadda.user._id}`)
+              h2
+                = yadda.user.fullname
+            h3 
+              = "@" + yadda.user.username
+          .yaddaText
+            p
+              = yadda.text
+          if yadda.image
+            img.yaddaImg(src=`https://res.cloudinary.com/kuko/w_600/${yadda.image}` alt='')
 
-  .yaddaBox
-    .yaddaUser
-      a(href=`/profile/${yadda.user._id}`)
-        h2
-          = yadda.user.fullname
-      h3 
-        = "@" + yadda.user.username
-    .yaddaText
-      p
-        = yadda.text
-    if yadda.image
-      img.yaddaImg(src=`https://res.cloudinary.com/kuko/w_600/${yadda.image}` alt='')
+          each tag in yadda.tags
+            .yaddaTags
+              a(href='/search/tag/' + tag)
+                span 
+                  = "#" + tag
 
-    each tag in yadda.tags
-      .yaddaTags
-        a(href='/search/tag/' + tag)
-          span 
-            = "#" + tag
+          .yaddaInfo
+            .likesandreplies
+              div
+                if yadda.likes.includes(user._id)
+                  img.like(src='/../images/heart.png')
+                else
+                  img.like(src='/../images/heart2.png')
+            
+                h3.like
+                  = "Likes (" + yadda.likes.length+ ")"
+              div
+                img(src='/../images/reply.png')
+                a(href=`/thread/${yadda._id}`)
+                  h3 
+                    = `Replies (${yadda.replyCount})`
+              input(type="hidden" value=yadda._id)
+            .yaddaDate
+              h3 
+                = yadda.dateFormatted
+            
+            if yadda.user._id.toString()!==user._id.toString()
+                .follow
+                    if user.following.includes(yadda.user._id)
+                      form(action=`/follow/${yadda.user._id}` method='POST')
+                        button unfollow
+                    else
+                      form(action=`/follow/${yadda.user._id}` method='POST')
+                        button follow
+                
+    when 'sub' 
+      .SubYadda
+        .thread
+        .profilePicYadda
+          a(href=`/profile/${yadda.user._id}`)
+            if yadda.user.image
+              img( alt='' style=`background-image:url(https://res.cloudinary.com/kuko/w_80/${yadda.user.image})`)
+            else
+              img(style="background-image:url('/../images/profile.jpg')" alt='')
+          
+        .subyaddaBox
+          .yaddaUser
+            a(href=`/profile/${yadda.user._id}`)
+              h2
+                = yadda.user.fullname
+            h3 
+              = "@" + yadda.user.username
+          .yaddaText
+            p
+              = yadda.text
+          if yadda.image
+            img.yaddaImg(src=`https://res.cloudinary.com/kuko/w_600/${yadda.image}` alt='')
 
-    .yaddaInfo
-      .likesandreplies
-        div
-          if yadda.likes.includes(user._id)
-            img.like(src='/../images/heart.png')
-          else
-            img.like(src='/../images/heart2.png')
-      
-          h3.like
-            = "Likes (" + yadda.likes.length+ ")"
-        div
-          img(src='/../images/reply.png')
-          h3 Replies (2)
-        input(type="hidden" value=yadda._id)
-      .yaddaDate
-        h3 
-          = yadda.dateFormatted
-      
-      if yadda.user._id.toString()!==user._id.toString()
-          .follow
-              if user.following.includes(yadda.user._id)
-                form(action=`/follow/${yadda.user._id}` method='POST')
-                  button unfollow
-              else
-                form(action=`/follow/${yadda.user._id}` method='POST')
-                  button follow
+          each tag in yadda.tags
+            .yaddaTags
+              a(href='/search/tag/' + tag)
+                span 
+                  = "#" + tag
+
+          .yaddaInfo
+            .likesandreplies
+              div
+                if yadda.likes.includes(user._id)
+                  img.like(src='/../images/heart.png')
+                else
+                  img.like(src='/../images/heart2.png')
+            
+                h3.like
+                  = "Likes (" + yadda.likes.length+ ")"
+              div
+                img(src='/../images/reply.png')
+                a(href=`/thread/${yadda._id}`)
+                  h3
+                    = `Replies (${yadda.replyCount})`
+              input(type="hidden" value=yadda._id)
+            .yaddaDate
+              h3 
+                = yadda.dateFormatted
+            
+            if yadda.user._id.toString()!==user._id.toString()
+                .follow
+                    if user.following.includes(yadda.user._id)
+                      form(action=`/follow/${yadda.user._id}` method='POST')
+                        button unfollow
+                    else
+                      form(action=`/follow/${yadda.user._id}` method='POST')
+                        button follow
+    when 'highlight' 
+      .HighlightYadda
+        .profilePicYadda
+          a(href=`/profile/${yadda.user._id}`)
+            if yadda.user.image
+              img( alt='' style=`background-image:url(https://res.cloudinary.com/kuko/w_80/${yadda.user.image})`)
+            else
+              img(style="background-image:url('/../images/profile.jpg')" alt='')
+          
+        .yaddaBox
+          .yaddaUser
+            a(href=`/profile/${yadda.user._id}`)
+              h2
+                = yadda.user.fullname
+            h3 
+              = "@" + yadda.user.username
+          .yaddaText
+            p
+              = yadda.text
+          if yadda.image
+            img.yaddaImg(src=`https://res.cloudinary.com/kuko/w_600/${yadda.image}` alt='')
+
+          each tag in yadda.tags
+            .yaddaTags
+              a(href='/search/tag/' + tag)
+                span 
+                  = "#" + tag
+
+          .yaddaInfo
+            .likesandreplies
+              div
+                if yadda.likes.includes(user._id)
+                  img.like(src='/../images/heart.png')
+                else
+                  img.like(src='/../images/heart2.png')
+            
+                h3.like
+                  = "Likes (" + yadda.likes.length+ ")"
+              div
+                img(src='/../images/reply.png')
+                a(href=`/thread/${yadda._id}`)
+                  h3 
+                    = `Replies (${yadda.replyCount})`
+              input(type="hidden" value=yadda._id)
+            .yaddaDate
+              h3 
+                = yadda.dateFormatted
+            
+            if yadda.user._id.toString()!==user._id.toString()
+                .follow
+                    if user.following.includes(yadda.user._id)
+                      form(action=`/follow/${yadda.user._id}` method='POST')
+                        button unfollow
+                    else
+                      form(action=`/follow/${yadda.user._id}` method='POST')
+                        button follow
+    default
+      .Yadda   
+        .profilePicYadda
+          a(href=`/profile/${yadda.user._id}`)
+            if yadda.user.image
+              img( alt='' style=`background-image:url(https://res.cloudinary.com/kuko/w_80/${yadda.user.image})`)
+            else
+              img(style="background-image:url('/../images/profile.jpg')" alt='')
+
+        .yaddaBox
+          .yaddaUser
+            a(href=`/profile/${yadda.user._id}`)
+              h2
+                = yadda.user.fullname
+            h3 
+              = "@" + yadda.user.username
+          .yaddaText
+            p
+              = yadda.text
+          if yadda.image
+            img.yaddaImg(src=`https://res.cloudinary.com/kuko/w_600/${yadda.image}` alt='')
+
+          each tag in yadda.tags
+            .yaddaTags
+              a(href='/search/tag/' + tag)
+                span 
+                  = "#" + tag
+
+          .yaddaInfo
+            .likesandreplies
+              div
+                if yadda.likes.includes(user._id)
+                  img.like(src='/../images/heart.png')
+                else
+                  img.like(src='/../images/heart2.png')
+            
+                h3.like
+                  = "Likes (" + yadda.likes.length+ ")"
+              div
+                img(src='/../images/reply.png')
+                a(href=`/thread/${yadda._id}`)
+                  h3 
+                    = `Replies (${yadda.replyCount})`
+              input(type="hidden" value=yadda._id)
+            .yaddaDate
+              h3 
+                = yadda.dateFormatted
+            
+            if yadda.user._id.toString()!==user._id.toString()
+                .follow
+                    if user.following.includes(yadda.user._id)
+                      form(action=`/follow/${yadda.user._id}` method='POST')
+                        button unfollow
+                    else
+                      form(action=`/follow/${yadda.user._id}` method='POST')
+                        button follow
 
 
-<hr>
+      <hr>
+    

@@ -66,12 +66,6 @@ UserSchema.virtual("followers", {
   localField: "_id",
   foreignField: "following",
 });
-// UserSchema.virtual("followers").get(function () {
-//   User.find({ following: { $in: this._id } }, null, function (followers) {
-//     return "followers";
-//   });
-//    return "kjlkjk";
-// });
 
 UserSchema.virtual("fullname").get(function () {
   return `${this.firstname} ${this.lastname}`;

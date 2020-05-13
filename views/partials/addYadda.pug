@@ -1,16 +1,35 @@
-block content
-    .writingYadda
-        form(action='/yadda' method='POST' enctype="multipart/form-data")
-          .writingYaddaInner
-            textarea(name='text' rows='8' cols='80' placeholder='Whats on your mind?')
-            #imgPreview.hidden
-          .tagsandsend
-            .addtags
-              input#tags(type='text' name='tags' value='' placeholder='+ add tags')
-            .postYadda
-              img(src='/../images/post.png' alt='Upload image' id="imgButton")
-              input(type="file" name="image" id="imgUpload" hidden=true )
-              button(type='submit' name='button') Post Yadda
-          p#tagDisplay
-
+mixin addYadda(parentID)
+  if parentID  
+    block content
+      .writingYadda
+          form(action='/yadda' method='POST' enctype="multipart/form-data")
+            .writingYaddaInner
+              textarea(name='text' rows='8' cols='80' placeholder=`Write comment to @${yadda.user.username}'s yadda...`)
+              #imgPreview.hidden
+            .tagsandsend
+              .addtags
+                input#tags(type='text' name='tags' value='' placeholder='+ add tags')
+              .postYadda
+                img(src='/../images/post.png' alt='Upload image' id="imgButton")
+                input(type="file" name="image" id="imgUpload" hidden=true )
+                input(type="text" name="parent" value=parentID hidden=true )
+                button(type='submit' name='button') Add comment
+            p#tagDisplay
   
+  else
+    block content
+          .writingYadda
+              form(action='/yadda' method='POST' enctype="multipart/form-data")
+                .writingYaddaInner
+                  textarea(name='text' rows='8' cols='80' placeholder='Whats on your mind?')
+                  #imgPreview.hidden
+                .tagsandsend
+                  .addtags
+                    input#tags(type='text' name='tags' value='' placeholder='+ add tags')
+                  .postYadda
+                    img(src='/../images/post.png' alt='Upload image' id="imgButton")
+                    input(type="file" name="image" id="imgUpload" hidden=true )
+                    button(type='submit' name='button') Post Yadda
+                p#tagDisplay
+
+      

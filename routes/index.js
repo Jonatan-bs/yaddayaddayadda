@@ -13,6 +13,7 @@ router.get("/settings", ensureAuthenticated, index.settings);
 router.get("/followers/:id", ensureAuthenticated, index.followers);
 router.get("/following/:id", ensureAuthenticated, index.following);
 router.get("/profile/:id", ensureAuthenticated, index.profile);
+router.get("/thread/:id", ensureAuthenticated, index.thread);
 
 router.post("/profilepic", ensureAuthenticated, upload, index.profilePic);
 router.post("/name", ensureAuthenticated, index.name);
