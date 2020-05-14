@@ -1,12 +1,11 @@
 if errors
-    each error in errors
-      p #{error.msg}
+      p.message #{error[0].msg}
 
-if success_msg
-    p #{success_msg}
+if success_msg.length
+    p.message #{success_msg}
 
-if error_msg
-    p #{error_msg}
+if error_msg.length
+    p.message #{error_msg}
 
-if error
-    p #{error}
+if error.length
+    p.message #{error}

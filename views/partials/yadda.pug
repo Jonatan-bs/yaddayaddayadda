@@ -15,8 +15,9 @@ mixin yadda(yadda,type)
             a(href=`/profile/${yadda.user._id}`)
               h2
                 = yadda.user.fullname
-            h3 
-              = "@" + yadda.user.username
+            a(href=`/profile/${yadda.user._id}`) 
+              h3 
+                = "@" + yadda.user.username
           .yaddaText
             p
               = yadda.text
@@ -49,14 +50,7 @@ mixin yadda(yadda,type)
               h3 
                 = yadda.dateFormatted
             
-            if yadda.user._id.toString()!==user._id.toString()
-                .follow
-                    if user.following.includes(yadda.user._id)
-                      form(action=`/follow/${yadda.user._id}` method='POST')
-                        button unfollow
-                    else
-                      form(action=`/follow/${yadda.user._id}` method='POST')
-                        button follow
+            
                 
     when 'sub' 
       .SubYadda
@@ -73,8 +67,9 @@ mixin yadda(yadda,type)
             a(href=`/profile/${yadda.user._id}`)
               h2
                 = yadda.user.fullname
-            h3 
-              = "@" + yadda.user.username
+            a(href=`/profile/${yadda.user._id}`) 
+              h3 
+                = "@" + yadda.user.username
           .yaddaText
             p
               = yadda.text
@@ -107,14 +102,7 @@ mixin yadda(yadda,type)
               h3 
                 = yadda.dateFormatted
             
-            if yadda.user._id.toString()!==user._id.toString()
-                .follow
-                    if user.following.includes(yadda.user._id)
-                      form(action=`/follow/${yadda.user._id}` method='POST')
-                        button unfollow
-                    else
-                      form(action=`/follow/${yadda.user._id}` method='POST')
-                        button follow
+   
     when 'highlight' 
       .HighlightYadda
         .profilePicYadda
@@ -129,8 +117,9 @@ mixin yadda(yadda,type)
             a(href=`/profile/${yadda.user._id}`)
               h2
                 = yadda.user.fullname
-            h3 
-              = "@" + yadda.user.username
+            a(href=`/profile/${yadda.user._id}`) 
+              h3 
+                = "@" + yadda.user.username
           .yaddaText
             p
               = yadda.text
@@ -163,14 +152,7 @@ mixin yadda(yadda,type)
               h3 
                 = yadda.dateFormatted
             
-            if yadda.user._id.toString()!==user._id.toString()
-                .follow
-                    if user.following.includes(yadda.user._id)
-                      form(action=`/follow/${yadda.user._id}` method='POST')
-                        button unfollow
-                    else
-                      form(action=`/follow/${yadda.user._id}` method='POST')
-                        button follow
+           
     default
       .Yadda   
         .profilePicYadda
@@ -185,8 +167,9 @@ mixin yadda(yadda,type)
             a(href=`/profile/${yadda.user._id}`)
               h2
                 = yadda.user.fullname
-            h3 
-              = "@" + yadda.user.username
+            a(href=`/profile/${yadda.user._id}`)
+              h3 
+                = "@" + yadda.user.username
           .yaddaText
             p
               = yadda.text
@@ -218,15 +201,7 @@ mixin yadda(yadda,type)
             .yaddaDate
               h3 
                 = yadda.dateFormatted
-            
-            if yadda.user._id.toString()!==user._id.toString()
-                .follow
-                    if user.following.includes(yadda.user._id)
-                      form(action=`/follow/${yadda.user._id}` method='POST')
-                        button unfollow
-                    else
-                      form(action=`/follow/${yadda.user._id}` method='POST')
-                        button follow
+       
 
 
       <hr>

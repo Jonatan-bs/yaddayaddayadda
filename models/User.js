@@ -67,8 +67,19 @@ UserSchema.virtual("followers", {
   foreignField: "following",
 });
 
+const capitalize = (s) => {
+  if (typeof s !== "string") return "";
+  return s.charAt(0).toUpperCase() + s.slice(1);
+};
 UserSchema.virtual("fullname").get(function () {
-  return `${this.firstname} ${this.lastname}`;
+  return `${capitalize(this.firstname)} ${capitalize(this.lastname)}`;
+});
+UserSchema.virtual("firstnameCap").get(function () {
+  return `${capitalize(this.firstname)}`;
+});
+
+UserSchema.virtual("lastnameCap").get(function () {
+  return `${capitalize(this.lastname)}`;
 });
 
 const User = mongoose.model("User", UserSchema, "user");
