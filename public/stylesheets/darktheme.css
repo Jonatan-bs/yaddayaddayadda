@@ -19,6 +19,7 @@ hr {
 .followingfollowers a,
 nav ul li a,
 .followbox a,
+.likesandreplies h3,
 .writingSearch input:nth-of-type(2) {
   color: #cacaca;
 }
