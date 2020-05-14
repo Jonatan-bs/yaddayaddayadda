@@ -39,6 +39,9 @@ exports.postRegister = async function (req, res) {
   if (password.length < 9) {
     errors.push({ msg: "Password must be at least 9 characters" });
   }
+  if (username.split(" ").length > 1) {
+    errors.push({ msg: "Username can't have spaces" });
+  }
 
   if (errors.length > 0) {
     res.render("register", {

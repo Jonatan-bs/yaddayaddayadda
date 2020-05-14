@@ -1,3 +1,13 @@
+// //// Remove whitespace from username
+window.addEventListener("load", () => {
+  let input = document.getElementById("username");
+  if (input) {
+    input.addEventListener("input", () => {
+      input.value = input.value.replace(/\W/g, "_");
+    });
+  }
+});
+
 //////////////
 //SEARCH BAR
 //////////////

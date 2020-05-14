@@ -31,7 +31,8 @@ nav ul li a,
 .profilebox,
 .settingsbox,
 .followbox,
-.HighlightYadda {
+.HighlightYadda,
+.writingSearch label {
   background: #191919;
 }
 

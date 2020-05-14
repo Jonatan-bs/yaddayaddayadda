@@ -1,7 +1,17 @@
 const Yadda = require("../../models/Yadda");
 
 module.exports.tagsOfTheWeek = async () => {
-  let tags = await Yadda.find({}, "-_id").select("tags");
+  // Get all tags created in th last week
+  let tags = await Yadda.find(
+    {
+      createdAt: {
+        $gte: new Date(new Date().getTime() - 7 * 24 * 60 * 60 * 1000),
+      },
+    },
+    "-_id"
+  ).select("tags");
+
+  // Count how many times each tag was used
   let tagCount = {};
   tags.forEach((tagsArr) => {
     tagsArr.tags.forEach((tag) => {
@@ -13,7 +23,7 @@ module.exports.tagsOfTheWeek = async () => {
     });
   });
 
-  // Sort
+  // Sort tags by count
   let sortable = [];
   for (var tag in tagCount) {
     sortable.push([tag, tagCount[tag]]);
@@ -24,6 +34,7 @@ module.exports.tagsOfTheWeek = async () => {
   });
 
   let tagsOfTheWeek = [];
+  // only return the top 10
   for (let i = 0; i < sortable.length && i < 10; i++) {
     const arr = sortable[i];
     tagsOfTheWeek.push(arr[0]);
