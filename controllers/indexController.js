@@ -1,9 +1,6 @@
 const Yadda = require("../models/Yadda");
 const User = require("../models/User");
-const mongoose = require("mongoose");
-const passport = require("passport");
 const cld = require("./cloudinaryHandler");
-const upload = require("./handlers/multer");
 
 exports.createYadda = async function (req, res, next) {
   let { text, image, parent, sponsored, tags, likes } = req.body;
@@ -169,14 +166,6 @@ exports.settings = async (req, res) => {
   });
 };
 
-// (async () => {
-//   const profile = await User.findOne().populate({
-//     path: "followers following",
-//     populate: { path: "followers following" },
-//   });
-
-//   console.log(profile);
-// })();
 exports.followers = async (req, res) => {
   // let type = req.params.type;
   let id = req.params.id;
@@ -203,9 +192,6 @@ exports.following = async (req, res) => {
       path: "following",
       populate: { path: "followers" },
     });
-  // const users = await User.find({ _id: { $in: profile.following } });
-
-  // profile.followers = await User.countDocuments({ following: { $in: id } });
 
   res.render("following", {
     title: "Following",
@@ -282,7 +268,7 @@ exports.name = async (req, res) => {
 exports.follow = async (req, res) => {
   try {
     let id = req.params.id;
-    // if (id === req.user._id.toString()) throw "Can't follow self";
+    if (id === req.user._id.toString()) throw "Can't follow self";
 
     let user2follow = await User.findById(id);
     if (!user2follow) throw "user doesn't exist";

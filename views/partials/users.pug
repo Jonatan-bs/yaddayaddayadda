@@ -18,4 +18,4 @@
         .followers
           h4 Followers
           h5 
-            = userData.followers.length
+            = userData.followers? userData.followers.length : 0
