@@ -7,7 +7,8 @@ exports.frontpage = async (req, res) => {
     let tagsOfTheWeek = await helper.tagsOfTheWeek();
     let yaddas;
     if (req.user.following.length) {
-      yaddas = await Yadda.find({ user: { $in: req.user.following } })
+      yaddaArr = [...req.user.following, req.user._id];
+      yaddas = await Yadda.find({ user: { $in: yaddaArr } })
         .sort([["createdAt", -1]])
         .populate({
           path: "user",

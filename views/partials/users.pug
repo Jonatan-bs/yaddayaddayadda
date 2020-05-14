@@ -1,21 +1,33 @@
 .followerflex
   each userData in users
+  
     .followbox
-      if userData.image
-          img( alt='' style=`background-image:url(https://res.cloudinary.com/kuko/w_80/${userData.image})`)
+      if user._id.toString()!==userData._id.toString()
+            .follow
+                if user.following.includes(userData._id)
+                  form(action=`/follow/${userData._id}` method='POST')
+                    button.unfollow unfollow
+                else
+                  form(action=`/follow/${userData._id}` method='POST')
+                    button follow
       else
-          img(style="background-image:url('/../images/profile.jpg')" alt='')
-      h2
-        a(href=`/profile/${userData._id}`) 
-          = `${userData.fullname}`
-      h3 
-        = `@${userData.username}` 
-      .followingfollowers
-        .following
-          h4 Following
-          h5 
-            = userData.following.length
-        .followers
-          h4 Followers
-          h5 
-            = userData.followers? userData.followers.length : 0
+        .followEmpty
+      .inner
+        if userData.image
+            img( alt='' style=`background-image:url(https://res.cloudinary.com/kuko/w_80/${userData.image})`)
+        else
+            img(style="background-image:url('/../images/profile.jpg')" alt='')
+        h2
+          a(href=`/profile/${userData._id}`) 
+            = `${userData.fullname}`
+        h3 
+          = `@${userData.username}` 
+        .followingfollowers
+          .following
+            h4 Following
+            h5 
+              = userData.following.length
+          .followers
+            h4 Followers
+            h5 
+              = userData.followers? userData.followers.length : 0
