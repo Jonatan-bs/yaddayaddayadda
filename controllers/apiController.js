@@ -102,7 +102,6 @@ exports.theme = async (req, res) => {
     await User.findByIdAndUpdate(req.user._id, {
       darkTheme: req.body.theme === "dark",
     });
-    req.flash("success_msg", "Theme was changed");
     res.redirect("back");
   } catch (err) {
     console.log(err);
