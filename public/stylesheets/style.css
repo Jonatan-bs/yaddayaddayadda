@@ -7,7 +7,7 @@ html {
 }
 
 nav {
-  background: #f5c4a3;
+  background: #c44f4f;
   display: flex;
   justify-content: space-between;
   height: 70px;
@@ -78,7 +78,7 @@ nav ul li a:hover {
 
 .profilepic img {
   border-radius: 50%;
-  border: 5px solid #f5c4a3;
+  border: 5px solid #c44f4f;
   width: 80px;
   height: 80px;
   background-size: cover;
@@ -100,7 +100,7 @@ nav ul li a:hover {
 .profilebox {
   width: 280px;
   background: #efefef;
-  height: 428px;
+  padding-bottom: 20px;
   border-radius: 5px;
   position: fixed;
 }
@@ -115,7 +115,9 @@ nav ul li a:hover {
   height: 220px;
   margin: 0 auto;
   border-radius: 50%;
-  border: 7px solid #f5c4a3;
+  border: 7px solid #c44f4f;
+  background-size: cover;
+  background-position: center center;
 }
 
 .profileName {
@@ -132,7 +134,7 @@ nav ul li a:hover {
 
 .profileName h3 {
   margin: 0;
-  color: #f5c4a3;
+  color: #c44f4f;
   font-size: 18px;
   font-weight: 700;
 }
@@ -172,8 +174,26 @@ nav ul li a:hover {
   align-items: center;
 }
 
+.searchbar button {
+  width: 100px;
+  height: 45px;
+  background: #c44f4f;
+  color: #000;
+  border-radius: 0px 5px 5px 0px;
+  border: 0px;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.searchbar button:hover {
+  color: #666;
+  cursor: pointer;
+}
+
 .writingSearch {
-  width: 714px;
+  width: 614px;
   margin: 0 auto;
   background: #ffffff;
   height: 45px;
@@ -188,7 +208,7 @@ nav ul li a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #f5c4a3;
+  background: #c44f4f;
   border-radius: 5px 0px 0px 5px;
   font-size: 20px;
   font-weight: 700;
@@ -223,7 +243,7 @@ nav ul li a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #f5c4a3;
+  background: #c44f4f;
   border-radius: 5px 0px 0px 5px;
   font-size: 20px;
   font-weight: 700;
@@ -332,7 +352,7 @@ nav ul li a:hover {
   width: 120px;
   height: 27px;
   border: 0;
-  background: #f5c4a3;
+  background: #c44f4f;
   border-radius: 5px;
   font-weight: 700;
   font-family: Segoe UI;
@@ -365,7 +385,7 @@ nav ul li a:hover {
   width: 69px;
   height: 69px;
   border-radius: 50%;
-  border: 3px solid #f5c4a3;
+  border: 3px solid #c44f4f;
 }
 
 .yaddaBox {
@@ -390,12 +410,12 @@ nav ul li a:hover {
 .yaddaUser h3 {
   margin: 0;
   font-size: 15px;
-  color: #f5c4a3;
+  color: #c44f4f;
 }
 
 .yaddaUser span {
   font-size: 15px;
-  color: #f5c4a3;
+  color: #c44f4f;
   font-weight: 700;
 }
 
@@ -407,7 +427,7 @@ nav ul li a:hover {
 
 .yaddaImg {
   width: 603px;
-  border: 5px solid #f5c4a3;
+  border: 5px solid #c44f4f;
   margin-bottom: 5px;
   border-radius: 5px;
 }
@@ -418,16 +438,16 @@ nav ul li a:hover {
 }
 
 .yaddaTags {
-  margin-bottom: 10px;
+  display: inline;
 }
 
 .yaddaTags a {
   text-decoration: none;
-  color: #f5c4a3;
+  color: #c44f4f;
 }
 
 .yaddaTags span {
-  color: #f5c4a3;
+  color: #c44f4f;
   font-size: 15px;
   margin-right: 10px;
   font-weight: 700;
@@ -437,6 +457,7 @@ nav ul li a:hover {
   display: flex;
   justify-content: space-between;
   width: 623px;
+  margin-top: 10px;
 }
 
 .likesandreplies {
@@ -444,6 +465,11 @@ nav ul li a:hover {
   justify-content: space-between;
   width: 190px;
   margin-bottom: 20px;
+}
+
+.likesandreplies a {
+  text-decoration: none;
+  color: #000;
 }
 
 .likesandreplies div {
@@ -455,6 +481,22 @@ nav ul li a:hover {
   margin: 0;
   font-size: 15px;
   font-weight: 700;
+}
+
+.likesandreplies h3:hover {
+  cursor: pointer;
+}
+
+.follow button {
+  width: 120px;
+  height: 27px;
+  border: 0;
+  background: #c44f4f;
+  border-radius: 5px;
+  font-weight: 700;
+  font-family: Segoe UI;
+  font-size: 13px;
+  text-transform: capitalize;
 }
 
 .likesandreplies img {
@@ -534,7 +576,7 @@ nav ul li a:hover {
   height: 470px;
   border-radius: 5px;
   position: fixed;
-  border: 5px solid #f5c4a3;
+  border: 5px solid #c44f4f;
   padding: 60px 40px;
 }
 
@@ -546,12 +588,12 @@ nav ul li a:hover {
   font-size: 22px;
   margin: 0;
   font-weight: 700;
-  color: #f5c4a3;
+  color: #c44f4f;
 }
 
 .infoName h3 {
   margin: 0;
-  color: #f5c4a3;
+  color: #c44f4f;
   font-size: 18px;
   font-weight: 700;
 }
@@ -564,7 +606,7 @@ nav ul li a:hover {
 }
 
 .infoName a {
-  background: #f5c4a3;
+  background: #c44f4f;
   padding: 10px 20px;
   display: block;
   text-align: center;
@@ -629,9 +671,8 @@ nav ul li a:hover {
   font-size: 16px;
 }
 
-<<<<<<< HEAD
 .loginbox button {
-  background: #f5c4a3;
+  background: #c44f4f;
   border: 0px;
   border-radius: 5px;
   font-weight: 700;
@@ -689,7 +730,7 @@ nav ul li a:hover {
 }
 
 .regbox button {
-  background: #f5c4a3;
+  background: #c44f4f;
   border: 0px;
   border-radius: 5px;
   font-weight: 700;
@@ -719,7 +760,7 @@ div#imgPreview {
 }
 =======
   .loginbox button {
-    background: #F5C4A3;
+    background: #c44f4f;
     border: 0px;
     border-radius: 5px;
     font-weight: 700;
@@ -777,7 +818,7 @@ div#imgPreview {
   }
 
   .regbox button {
-    background: #F5C4A3;
+    background: #c44f4f;
     border: 0px;
     border-radius: 5px;
     font-weight: 700;
@@ -790,6 +831,7 @@ div#imgPreview {
 
   .settings {
     width: 740px;
+    margin-bottom: 15px;
   }
 
   .settings h1 {
@@ -848,7 +890,7 @@ div#imgPreview {
   }
 
   .settingsbox button {
-    background: #F5C4A3;
+    background: #c44f4f;
     border: 0px;
     padding: 10px;
     border-radius: 5px;
@@ -878,7 +920,7 @@ div#imgPreview {
 
   .followfeed h1 a {
     text-decoration: none;
-    color: #F5C4A3;
+    color: #c44f4f;
   }
 
   .followfeed h1 a:hover {
@@ -886,7 +928,7 @@ div#imgPreview {
     cursor: pointer;
   }
 
-  .followerflex {
+  .followerflex {///////
     display: flex;
     justify-content:space-between;
     flex-wrap: wrap;
@@ -904,9 +946,11 @@ div#imgPreview {
   .followbox img {
     width: 171px;
     height: 171px;
-    border: 7px solid #F5C4A3;
+    border: 7px solid #c44f4f;
     border-radius: 50%;
     margin-bottom: 5px;
+    background-size: cover;
+    background-position: center center;
   }
 
   .followbox h2 {
@@ -922,12 +966,12 @@ div#imgPreview {
 
   .followbox a:hover {
     cursor: pointer;
-    color: #F5C4A3;
+    color: #c44f4f;
   }
 
   .followbox h3 {
     font-size: 15px;
-    color: #F5C4A3;
+    color: #c44f4f;
     margin: 0;
     text-align: left;
   }
@@ -938,6 +982,15 @@ div#imgPreview {
     display: flex;
     justify-content: space-between;
     text-align: center;
+  }
+
+  .followingfollowers a {
+    text-decoration: none;
+    color: #000;
+  }
+
+  .followingfollowers a:hover {
+    cursor: pointer;
   }
 
   .followbox .followingfollowers h4 {
@@ -985,13 +1038,13 @@ div#imgPreview {
     justify-content: space-around;
     background: #EFEFEF;
     border-radius: 5px;
-    border-top: 5px solid #F5C4A3;
-    border-bottom: 5px solid #F5C4A3;
+    border-top: 5px solid #c44f4f;
+    border-bottom: 5px solid #c44f4f;
   }
 
   .thread {
     width: 33px;
-    border-right: 5px solid #F5C4A3;
+    border-right: 5px solid #c44f4f;
     height: auto;
   }
 
@@ -1025,25 +1078,37 @@ div#imgPreview {
     padding-bottom: 35px;
   }
 
+  .mentionsbox div {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+
+  }
+
   .mentionsbox h2 {
     margin: 0;
     font-size: 30px;
     padding-bottom: 5px;
     margin-bottom: 15px;
-    border-bottom: 3px solid #F5C4A3;
+    border-bottom: 3px solid #c44f4f;
   }
 
   .mentionsbox a {
-    color: #F5C4A3;
+    color: #c44f4f;
     font-size: 20px;
     margin: 0;
     text-decoration: none;
     border-bottom: 2px solid transparent;
-    margin-right: 10px;
+    display: inline;
+    margin-right: 20px;
   }
 
   .mentionsbox a:hover {
-    color: #F5C4A3;
+    color: #c44f4f;
     cursor: pointer;
-    border-bottom: 2px solid #F5C4A3;
+    border-bottom: 2px solid #c44f4f;
+  }
+
+  #tagDisplay {
+    color: #c44f4f;
   }
