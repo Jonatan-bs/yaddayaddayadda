@@ -11,15 +11,15 @@ exports.frontpage = async (req, res) => {
       yaddas = await Yadda.find({ user: { $in: yaddaArr } })
         .sort([["createdAt", -1]])
         .populate({
-          path: "user",
-          populate: { path: "followers" },
+          path: "user parent",
+          populate: { path: "followers user" },
         });
     } else {
       yaddas = await Yadda.find({})
         .sort([["createdAt", -1]])
         .populate({
-          path: "user",
-          populate: { path: "followers" },
+          path: "user parent",
+          populate: { path: "followers user" },
         });
     }
     res.render("index", {
@@ -35,16 +35,39 @@ exports.frontpage = async (req, res) => {
     });
   }
 };
+exports.frontpageAll = async (req, res) => {
+  let tagsOfTheWeek = await helper.tagsOfTheWeek();
+  let yaddas;
+
+  yaddas = await Yadda.find({})
+    .sort([["createdAt", -1]])
+    .populate({
+      path: "user parent",
+      populate: { path: "followers user" },
+    });
+
+  res.render("index", {
+    title: "Frontpage",
+    yaddas,
+    user: req.user,
+    users: [],
+    tagsOfTheWeek,
+    all: true,
+  });
+};
 
 exports.thread = async (req, res) => {
   const id = req.params.id;
 
   let yadda = await Yadda.findById(id).populate({
-    path: "user",
+    path: "user parent",
+    populate: { path: "followers user" },
   });
+  console.log();
 
   const subYaddas = await Yadda.find({ parent: id }).populate({
-    path: "user",
+    path: "user parent",
+    populate: { path: "followers user" },
   });
 
   let parentYaddas = await yadda.parents(yadda);
@@ -65,16 +88,17 @@ exports.search = async (req, res) => {
   let yaddas = [];
   let users = [];
   const regex = { $regex: new RegExp(search, "i") };
+
   let tagsOfTheWeek = await helper.tagsOfTheWeek();
   switch (type) {
     case "tag":
-      queryParams = { tags: { $in: [regex.$regex] } };
+      queryParams = { tags: { $in: [/*regex.$regex*/ search] } };
 
       yaddas = await Yadda.find(queryParams)
         .sort([["createdAt", -1]])
         .populate({
-          path: "user",
-          populate: { path: "followers" },
+          path: "user parent",
+          populate: { path: "followers user" },
         });
 
       break;
@@ -150,7 +174,7 @@ exports.profile = async (req, res) => {
   let id = req.params.id;
   const yaddas = await Yadda.find({ user: id })
     .sort([["createdAt", -1]])
-    .populate("user");
+    .populate({ path: "user parent", populate: { path: "user" } });
 
   let profile = await User.findById(id).populate("followers");
 

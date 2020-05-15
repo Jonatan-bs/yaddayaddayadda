@@ -3,7 +3,6 @@ html {
   margin: 0;
   font-family: Segoe UI;
   background: #ffffff;
-  height: 100%;
 }
 
 nav {
@@ -386,7 +385,13 @@ nav ul li a {
 }
 
 .yaddaUser {
-  padding-top: 10px;
+  padding-top: 25.5px;
+  padding-bottom: 29.5px;
+}
+
+.yaddaUser.parent {
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .yaddaUser a {
@@ -1133,4 +1138,32 @@ p.message {
 
 p.message.hide {
   opacity: 0;
+}
+
+.filter {
+  text-align: center;
+}
+.filter .active {
+  text-decoration: line-through;
+}
+.filter a {
+  text-decoration: none;
+}
+.filter a,
+.filter .active {
+  color: #c54e4f;
+  font-weight: bold;
+}
+.filter p,
+.filter a {
+  display: inline;
+}
+
+.answer a {
+  color: #c54e4f !important;
+}
+.answer a,
+.answer p {
+  font-style: italic;
+  display: inline;
 }

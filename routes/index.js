@@ -6,6 +6,7 @@ const { ensureAuthenticated } = require("../config/auth");
 const upload = require("../config/multer");
 
 router.get("/", index.frontpage);
+router.get("/all", ensureAuthenticated, index.frontpageAll);
 router.get("/search/:type/:search", ensureAuthenticated, index.search);
 router.get("/settings", ensureAuthenticated, index.settings);
 router.get("/followers/:id", ensureAuthenticated, index.followers);

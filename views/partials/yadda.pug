@@ -1,6 +1,5 @@
 mixin yadda(yadda,type) 
   case type 
-    
     when 'main'
       .MainYadda
         .profilePicYadda
@@ -18,6 +17,7 @@ mixin yadda(yadda,type)
             a(href=`/profile/${yadda.user._id}`) 
               h3 
                 = "@" + yadda.user.username
+            
           .yaddaText
             p
               = yadda.text
@@ -163,13 +163,21 @@ mixin yadda(yadda,type)
               img(style="background-image:url('/../images/profile.jpg')" alt='')
 
         .yaddaBox
-          .yaddaUser
+          .yaddaUser( class=`${yadda.parent? "parent" : ""}`)
             a(href=`/profile/${yadda.user._id}`)
               h2
                 = yadda.user.fullname
             a(href=`/profile/${yadda.user._id}`)
               h3 
                 = "@" + yadda.user.username
+            if yadda.parent    
+              .answer
+                p Answer to
+                a(href=`/profile/${yadda.parent.user._id}`)  
+                  = `@${yadda.parent.user.username}`
+                p   >  
+                a(href=`/thread/${yadda.parent._id}`) yadda 
+             
           .yaddaText
             p
               = yadda.text

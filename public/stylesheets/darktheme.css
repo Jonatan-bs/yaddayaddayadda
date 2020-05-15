@@ -6,7 +6,8 @@ html {
   height: 100%;
   color: #cacaca;
 }
-a {
+a,
+.filter {
   color: #cacaca;
 }
 
