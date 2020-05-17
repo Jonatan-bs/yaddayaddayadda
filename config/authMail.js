@@ -21,7 +21,7 @@ module.exports = async (user) => {
       }
     );
 
-    const url = `http://localhost:3000/user/confirmation/${emailToken}`;
+    const url = `https://yadda3.herokuapp.com/user/confirmation/${emailToken}`;
 
     await transporter.sendMail({
       from: '"YaddaYaddaYadda" < ' + process.env.EMAIL_USERNAME + ">", // sender address

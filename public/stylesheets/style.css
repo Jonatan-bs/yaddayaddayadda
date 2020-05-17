@@ -60,13 +60,8 @@ nav ul li:last-child {
 
 nav ul li a {
   text-decoration: none;
-  color: #000;
+  color: #fff;
   text-align: right;
-}
-
-nav ul li a:hover {
-  color: #666;
-  transition: 0.5s;
 }
 
 .profilepic {
@@ -177,18 +172,13 @@ nav ul li a:hover {
   width: 100px;
   height: 45px;
   background: #c44f4f;
-  color: #000;
+  color: #fff;
   border-radius: 0px 5px 5px 0px;
   border: 0px;
   font-weight: 700;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.searchbar button:hover {
-  color: #666;
-  cursor: pointer;
 }
 
 .writingSearch {
@@ -247,6 +237,8 @@ nav ul li a:hover {
   font-size: 20px;
   font-weight: 700;
   cursor: pointer;
+
+  color: #fff;
 }
 
 .writingSearch input:nth-of-type(2) {
@@ -327,7 +319,7 @@ nav ul li a:hover {
 .addtags input {
   width: 518px;
   height: 17px;
-  background: #fff;
+  /* background: #fff; */
   border-radius: 5px;
   border: 0;
   padding: 5px;
@@ -354,8 +346,8 @@ nav ul li a:hover {
   background: #c44f4f;
   border-radius: 5px;
   font-weight: 700;
-  font-family: Segoe UI;
   font-size: 13px;
+  color: #fff;
 }
 
 .Yadda {
@@ -385,6 +377,7 @@ nav ul li a:hover {
   height: 69px;
   border-radius: 50%;
   border: 3px solid #c44f4f;
+  background-size: cover;
 }
 
 .yaddaBox {
@@ -392,7 +385,13 @@ nav ul li a:hover {
 }
 
 .yaddaUser {
-  padding-top: 10px;
+  padding-top: 25.5px;
+  padding-bottom: 29.5px;
+}
+
+.yaddaUser.parent {
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .yaddaUser a {
@@ -487,15 +486,19 @@ nav ul li a:hover {
 }
 
 .follow button {
-  width: 120px;
+  border-radius: 5px 5px 0 0;
+  width: 100%;
   height: 27px;
   border: 0;
   background: #c44f4f;
-  border-radius: 5px;
   font-weight: 700;
-  font-family: Segoe UI;
   font-size: 13px;
+  color: #fff;
   text-transform: capitalize;
+  cursor: pointer;
+}
+.follow button.unfollow {
+  background: #d9d9d9;
 }
 
 .likesandreplies img {
@@ -680,6 +683,7 @@ nav ul li a:hover {
   width: 100px;
   font-size: 16px;
   margin-top: 10px;
+  color: #fff;
 }
 
 .regboxfront {
@@ -738,6 +742,7 @@ nav ul li a:hover {
   width: 100px;
   font-size: 16px;
   margin-top: 10px;
+  color: #fff;
 }
 
 #imgButton {
@@ -757,357 +762,408 @@ div#imgPreview {
   display: flex;
   width: 100%;
 }
-=======
-  .loginbox button {
-    background: #c44f4f;
-    border: 0px;
-    border-radius: 5px;
-    font-weight: 700;
-    padding: 10px;
-    text-align: center;
-    width: 100px;
-    font-size: 16px;
-    margin-top: 10px;
-  }
+======= .loginbox button {
+  background: #c44f4f;
+  border: 0px;
+  border-radius: 5px;
+  font-weight: 700;
+  padding: 10px;
+  text-align: center;
+  width: 100px;
+  color: #fff;
+  font-size: 16px;
+  margin-top: 10px;
+}
 
-  .regboxfront {
-    position: absolute;
-    z-index: 2;
-    top: 15%;
-    right: 0;
-    left: 0;
-    margin: 0 auto;
-    width: 440px;
-    background: #000;
-  }
+.regboxfront {
+  position: absolute;
+  z-index: 2;
+  top: 15%;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+  width: 440px;
+  background: #000;
+}
 
-  .regmentions {
-    width: 440px;
-  }
+.regmentions {
+  width: 440px;
+}
 
-  .regbox {
-    width: 350px;
-    background: #efefef;
-    border-radius: 5px;
-    position: fixed;
-    padding: 60px 40px;
-  }
+.regbox {
+  width: 350px;
+  background: #efefef;
+  border-radius: 5px;
+  position: fixed;
+  padding: 60px 40px;
+}
 
-  .regbox h2 {
-    color: #000;
-    font-size: 40px;
-    margin: 0;
-    margin-bottom: 20px;
-  }
+.regbox h2 {
+  color: #000;
+  font-size: 40px;
+  margin: 0;
+  margin-bottom: 20px;
+}
 
-  .regbox label {
-    font-size: 16px;
-    font-weight: 700;
-  }
+.regbox label {
+  font-size: 16px;
+  font-weight: 700;
+}
 
-  .regbox input {
-    width: 330px;
-    border: 0px;
-    border-radius: 5px;
-    padding: 10px;
-    font-family: Segoe UI;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    font-size: 16px;
-  }
+.regbox input {
+  width: 330px;
+  border: 0px;
+  border-radius: 5px;
+  padding: 10px;
+  font-family: Segoe UI;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
 
-  .regbox button {
-    background: #c44f4f;
-    border: 0px;
-    border-radius: 5px;
-    font-weight: 700;
-    padding: 10px;
-    text-align: center;
-    width: 100px;
-    font-size: 16px;
-    margin-top: 10px;
-  }
+.regbox button {
+  background: #c44f4f;
+  border: 0px;
+  border-radius: 5px;
+  font-weight: 700;
+  padding: 10px;
+  color: #fff;
+  text-align: center;
+  width: 100px;
+  font-size: 16px;
+  margin-top: 10px;
+}
 
-  .settings {
-    width: 740px;
-    margin-bottom: 15px;
-  }
+.settings {
+  width: 740px;
+  margin-bottom: 15px;
+}
 
-  .settings h1 {
-    font-size: 40px;
-    margin: 0;
-  }
+.settings h1 {
+  font-size: 40px;
+  margin: 0;
+}
 
-  .settingsbox {
-    background: #EFEFEF;
-    padding: 15px;
-    border-radius: 5px;
-    margin-top: 15px;
-  }
+.settingsbox {
+  background: #efefef;
+  padding: 15px;
+  border-radius: 5px;
+  margin-top: 15px;
+}
 
-  .settingsbox h2 {
-    font-size: 20px;
-    margin: 0;
-  }
+.settingsbox h2 {
+  font-size: 20px;
+  margin: 0;
+}
 
-  .settingsbox h3 {
-    font-size: 15px;
-    margin: 0px;
-    font-weight: 400;
-    margin-top: 5px;
-  }
+.settingsbox h3 {
+  font-size: 15px;
+  margin: 0px;
+  font-weight: 400;
+  margin-top: 5px;
+}
 
-  .settingsbox input[type=text] {
-    font-family: Segoe UI;
-    border: 0px;
-    border-radius: 5px;
-    padding: 10px;
-    margin-top: 5px;
-    width: 690px
-  }
+.settingsbox input[type="text"] {
+  font-family: Segoe UI;
+  border: 0px;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 5px;
+  width: 690px;
+}
 
-  .settingsbox input[type=password] {
-    font-family: Segoe UI;
-    border: 0px;
-    border-radius: 5px;
-    padding: 10px;
-    margin-top: 5px;
-    width: 690px
-  }
+.settingsbox input[type="password"] {
+  font-family: Segoe UI;
+  border: 0px;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 5px;
+  width: 690px;
+}
 
-  .settingsbox input[type=email] {
-    font-family: Segoe UI;
-    border: 0px;
-    border-radius: 5px;
-    padding: 10px;
-    margin-top: 5px;
-    width: 690px
-  }
+.settingsbox input[type="email"] {
+  font-family: Segoe UI;
+  border: 0px;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 5px;
+  width: 690px;
+}
 
-  .settingsbox input[type=radio] {
-    margin-top: 15px;
-  }
+.settingsbox input[type="radio"] {
+  margin-top: 15px;
+}
 
-  .settingsbox button {
-    background: #c44f4f;
-    border: 0px;
-    padding: 10px;
-    border-radius: 5px;
-    width: 100px;
-    font-size: 15px;
-    font-family: Segoe UI;
-    margin-top: 15px;
-  }
+.settingsbox button {
+  background: #c44f4f;
+  border: 0px;
+  padding: 10px;
+  color: #fff;
+  border-radius: 5px;
+  width: 100px;
+  font-size: 15px;
+  margin-top: 15px;
+}
 
-  .settingsbox button:hover {
-    cursor: pointer;
-    opacity: 90%;
-  }
+.settingsbox button:hover {
+  cursor: pointer;
+  opacity: 90%;
+}
 
-  .buttonright {
-    text-align: right;
-  }
+.buttonright {
+  text-align: right;
+}
 
-  .followfeed {
-    width: 740px;
-  }
+.followfeed {
+  width: 740px;
+}
 
-  .followfeed h1 {
-    font-size: 40px;
-    margin: 0;
-  }
+.followfeed h1 {
+  font-size: 40px;
+  margin: 0;
+}
 
-  .followfeed h1 a {
-    text-decoration: none;
-    color: #c44f4f;
-  }
+.followfeed h1 a {
+  text-decoration: none;
+  color: #c44f4f;
+}
 
-  .followfeed h1 a:hover {
-    color: #EFEFEF;
-    cursor: pointer;
-  }
+.followfeed h1 a:hover {
+  color: #efefef;
+  cursor: pointer;
+}
 
-  .followerflex {///////
-    display: flex;
-    justify-content:space-between;
-    flex-wrap: wrap;
-  }
+.followerflex {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
 
-  .followbox {
-    width: 196px;
-    padding: 15px;
-    background: #EFEFEF;
-    margin-top: 15px;
-    border-radius: 5px;
-    text-align: center;
-  }
+.followbox {
+  width: 226px;
+  background: #efefef;
+  margin-top: 15px;
+  border-radius: 5px;
+  text-align: center;
+}
+.followbox .inner {
+  padding: 15px;
+}
+.followEmpty {
+  height: 27px;
+}
 
-  .followbox img {
-    width: 171px;
-    height: 171px;
-    border: 7px solid #c44f4f;
-    border-radius: 50%;
-    margin-bottom: 5px;
-    background-size: cover;
-    background-position: center center;
-  }
+.followbox img {
+  width: 171px;
+  height: 171px;
+  border: 7px solid #c44f4f;
+  border-radius: 50%;
+  margin-bottom: 5px;
+  background-size: cover;
+  background-position: center center;
+}
 
-  .followbox h2 {
-    font-size: 18px;
-    margin: 0;
-    text-align: left;
-  }
+.followbox h2 {
+  font-size: 18px;
+  margin: 0;
+  text-align: left;
+}
 
-  .followbox a {
-    text-decoration: none;
-    color: #000;
-  }
+.followbox a {
+  text-decoration: none;
+  color: #000;
+}
 
-  .followbox a:hover {
-    cursor: pointer;
-    color: #c44f4f;
-  }
+.followbox a:hover {
+  cursor: pointer;
+  color: #c44f4f;
+}
 
-  .followbox h3 {
-    font-size: 15px;
-    color: #c44f4f;
-    margin: 0;
-    text-align: left;
-  }
+.followbox h3 {
+  font-size: 15px;
+  color: #c44f4f;
+  margin: 0;
+  text-align: left;
+}
 
-  .followbox .followingfollowers {
-    width: 186px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    text-align: center;
-  }
+.followbox .followingfollowers {
+  width: 186px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
 
-  .followingfollowers a {
-    text-decoration: none;
-    color: #000;
-  }
+.followingfollowers a {
+  text-decoration: none;
+  color: #000;
+}
 
-  .followingfollowers a:hover {
-    cursor: pointer;
-  }
+.followingfollowers a:hover {
+  cursor: pointer;
+}
 
-  .followbox .followingfollowers h4 {
-    margin: 0;
-    margin-top: 10px;
-    font-size: 12px;
-  }
+.followbox .followingfollowers h4 {
+  margin: 0;
+  margin-top: 10px;
+  font-size: 12px;
+}
 
-  .followbox .followingfollowers h5 {
-    margin: 0;
-    font-size: 20px;
-  }
+.followbox .followingfollowers h5 {
+  margin: 0;
+  font-size: 20px;
+}
 
-  .MainYadda {
-    width: 740px;
-    border-radius: 5px;
-    display: flex;
-    justify-content: space-around;
-    border-radius: 5px;
-  }
+.MainYadda {
+  width: 740px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-around;
+  border-radius: 5px;
+}
 
-  .MainYadda .profilePicYadda {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
+.MainYadda .profilePicYadda {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
-  .MainYadda .profilePicYadda .thread {
-    height: 90%;
-    width: 36px;
-  }
+.MainYadda .profilePicYadda .thread {
+  height: 90%;
+  width: 36px;
+}
 
+.SubYadda {
+  width: 740px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-around;
+}
 
-  .SubYadda {
-    width: 740px;
-    border-radius: 5px;
-    display: flex;
-    justify-content: space-around;
-  }
+.HighlightYadda {
+  width: 740px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-around;
+  background: #efefef;
+  border-radius: 5px;
+  border-top: 5px solid #c44f4f;
+  border-bottom: 5px solid #c44f4f;
+}
 
-  .HighlightYadda {
-    width: 740px;
-    border-radius: 5px;
-    display: flex;
-    justify-content: space-around;
-    background: #EFEFEF;
-    border-radius: 5px;
-    border-top: 5px solid #c44f4f;
-    border-bottom: 5px solid #c44f4f;
-  }
+.thread {
+  width: 33px;
+  border-right: 5px solid #c44f4f;
+  height: auto;
+}
 
-  .thread {
-    width: 33px;
-    border-right: 5px solid #c44f4f;
-    height: auto;
-  }
+.SubYadda .profilePicYadda {
+  margin-top: 5px;
+}
 
-  .SubYadda .profilePicYadda {
-    margin-top: 5px;
-  }
+.subyaddaBox {
+  width: 545px;
+  margin-top: 5px;
+}
 
-  .subyaddaBox {
-    width: 545px;
-    margin-top: 5px;
-  }
+.subyaddaBox .yaddaImg {
+  width: 535px;
+}
 
-  .subyaddaBox .yaddaImg {
-    width: 535px;
-  }
+.subyaddaBox .yaddaInfo {
+  width: 555px;
+}
 
-  .subyaddaBox .yaddaInfo {
-    width: 555px;
-  }
+.subyaddaBox .likesandreplies {
+  width: 193px;
+}
 
-  .subyaddaBox .likesandreplies {
-    width: 193px;
-  }
+.mentionsbox {
+  width: 250px;
+  background: #efefef;
+  border-radius: 5px;
+  position: fixed;
+  padding: 15px 15px;
+  padding-bottom: 35px;
+}
 
-  .mentionsbox {
-    width: 250px;
-    background: #EFEFEF;
-    border-radius: 5px;
-    position: fixed;
-    padding: 15px 15px;
-    padding-bottom: 35px;
-  }
+.mentionsbox div {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
 
-  .mentionsbox div {
-    display: flex;
-    justify-content: flex-start;
-    flex-wrap: wrap;
+.mentionsbox h2 {
+  margin: 0;
+  font-size: 30px;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+  border-bottom: 3px solid #c44f4f;
+}
 
-  }
+.mentionsbox a {
+  color: #c44f4f;
+  font-size: 20px;
+  margin: 0;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  display: inline;
+  margin-right: 20px;
+}
 
-  .mentionsbox h2 {
-    margin: 0;
-    font-size: 30px;
-    padding-bottom: 5px;
-    margin-bottom: 15px;
-    border-bottom: 3px solid #c44f4f;
-  }
+.mentionsbox a:hover {
+  color: #c44f4f;
+  cursor: pointer;
+  border-bottom: 2px solid #c44f4f;
+}
 
-  .mentionsbox a {
-    color: #c44f4f;
-    font-size: 20px;
-    margin: 0;
-    text-decoration: none;
-    border-bottom: 2px solid transparent;
-    display: inline;
-    margin-right: 20px;
-  }
+#tagDisplay {
+  color: #c44f4f;
+}
 
-  .mentionsbox a:hover {
-    color: #c44f4f;
-    cursor: pointer;
-    border-bottom: 2px solid #c44f4f;
-  }
+p.message {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #c54e4f;
+  padding: 20px 30px;
+  font-size: 30px;
+  color: #fff;
+  border: 1px solid #d6d6d6;
+  box-shadow: 5px 3px 4px 0px #33333359;
+  z-index: 100;
+  transition: opacity 1s;
+}
 
-  #tagDisplay {
-    color: #c44f4f;
-  }
+p.message.hide {
+  opacity: 0;
+}
+
+.filter {
+  text-align: center;
+}
+.filter .active {
+  text-decoration: line-through;
+}
+.filter a {
+  text-decoration: none;
+}
+.filter a,
+.filter .active {
+  color: #c54e4f;
+  font-weight: bold;
+}
+.filter p,
+.filter a {
+  display: inline;
+}
+
+.answer a {
+  color: #c54e4f !important;
+}
+.answer a,
+.answer p {
+  font-style: italic;
+  display: inline;
+}

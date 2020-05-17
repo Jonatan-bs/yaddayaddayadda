@@ -1,20 +1,22 @@
 extends layout
 block content
+  include partials/messages
   main.mainpage
     section.profilementions
-      .profilebox
-        .pPicture
-          img(src='images/placeholder.jpg')
-        .profileName
-          h2 Bailey Johnson
-          h3 @baileydrinks
-        .followingfollowers
-          .following
-            h4 Following
-            h5 731
-          .followers
-            h4 Followers
-            h5 121
+      include partials/profileBox
+      //- .profilebox
+      //-   .pPicture
+      //-     img(src='images/placeholder.jpg')
+      //-   .profileName
+      //-     h2 Bailey Johnson
+      //-     h3 @baileydrinks
+      //-   .followingfollowers
+      //-     .following
+      //-       h4 Following
+      //-       h5 731
+      //-     .followers
+      //-       h4 Followers
+      //-       h5 121
     section.settings
       h1 General Settings
       .settingsbox
@@ -31,10 +33,10 @@ block content
         h2 Name
         form(action='/name' method='post')
           h3 Firstname
-          input(type='text' name='firstname' placeholder='Enter your firstname' value=`${user.firstname}`)
+          input(type='text' name='firstname' placeholder='Enter your firstname' value=`${user.firstnameCap}`)
           br
           h3 Lastname
-          input(type='text' name='lastname' placeholder='Enter your lastname' value=`${user.lastname}`)
+          input(type='text' name='lastname' placeholder='Enter your lastname' value=`${user.lastnameCap}`)
           br
           .buttonright
             button(type='submit' name='button') Confirm
@@ -49,20 +51,6 @@ block content
           br
           h3 Confirm new password
           input(type='password' name='cpassword' placeholder='Confirm your new password')
-          br
-          .buttonright
-            button(type='submit' name='button') Confirm
-      .settingsbox
-        h2 Email
-        form(action='/email' method='post')
-          h3 Old email
-          input(type='email' name='oemail' placeholder='Enter your old email')
-          br
-          h3 New email
-          input(type='email' name='nemail' placeholder='Enter your new email')
-          br
-          h3 Confirm new email
-          input(type='email' name='cemail' placeholder='Confirm your new email')
           br
           .buttonright
             button(type='submit' name='button') Confirm

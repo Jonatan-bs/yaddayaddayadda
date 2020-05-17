@@ -2,8 +2,11 @@ include ./yadda.pug
 
 block content
     if yaddas.length
-        each yadda in yaddas
+        each yadda, i in yaddas
+            if i === 4
+                include yaddaSponsored
             +yadda(yadda)
+
     else if users.length
             include users
     else

@@ -8,8 +8,20 @@ block content
     section.feed
       include partials/search
       +addYadda
+      if user.following.length
+        if all
+          .filter
+            p Show 
+              span.active all
+              span  | |  
+            a(href="/") following 
+        else
+          .filter
+            p Show 
+            a(href="/all") all
+            p  | |
+            p.active following
       include partials/feed
-      include partials/yaddaSponsored
   
 
 

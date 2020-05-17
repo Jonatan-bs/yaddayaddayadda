@@ -1,100 +1,33 @@
 const Yadda = require("../models/Yadda");
 const User = require("../models/User");
-const mongoose = require("mongoose");
-const passport = require("passport");
-const cld = require("./cloudinaryHandler");
-const upload = require("./handlers/multer");
-
-exports.createYadda = async function (req, res, next) {
-  let { text, image, parent, sponsored, tags, likes } = req.body;
-
-  let user;
-  if (req.user) {
-    user = req.user._id;
-  }
-
-  if (req.file) {
-    let img = await cld.upload(req);
-
-    if (img) {
-      image = img.public_id;
-    } else {
-      return false;
-    }
-  }
-
-  if (tags && tags.length) {
-    let tagsArr = tags.split(" ");
-    let tagsArrClean = [];
-
-    tagsArr.forEach((tag) => {
-      if (tag) {
-        tagsArrClean.push(tag);
-      }
-    });
-    tags = tagsArrClean;
-  } else {
-    tags = [];
-  }
-
-  // Create new yadda object
-  const newYadda = new Yadda({
-    text,
-    parent,
-    sponsored,
-    tags,
-    likes,
-    user,
-    image,
-  });
-  if (parent) {
-    const yadda = await Yadda.findById(parent);
-    yadda.replyCount++;
-    await yadda.save();
-  }
-
-  //Save Yadda if mongoose Validation succeeds
-  newYadda
-    .save()
-    .then(() => {
-      req.flash("success_msg", "Yadda was created");
-      res.redirect("/");
-    })
-    .catch((err) => {
-      console.log(err);
-      req.flash("error_msg", "Something went wrong");
-      res.redirect("/");
-    });
-};
-
-exports.likeYadda = async function (req, res) {
-  const id = req.body.id;
-  let yadda = await Yadda.findById(id);
-
-  if (yadda.likes.includes(req.user._id)) {
-    const index = yadda.likes.indexOf(req.user._id);
-    yadda.likes.splice(index, 1);
-  } else {
-    yadda.likes.push(req.user._id);
-  }
-  await yadda.save();
-  res.send();
-};
+const helper = require("./helpers/helper");
 
 exports.frontpage = async (req, res) => {
   if (req.user) {
-    const yaddas = await Yadda.find({})
-      .sort([["createdAt", -1]])
-      .populate({
-        path: "user",
-        populate: { path: "followers" },
-      });
-
+    let tagsOfTheWeek = await helper.tagsOfTheWeek();
+    let yaddas;
+    if (req.user.following.length) {
+      yaddaArr = [...req.user.following, req.user._id];
+      yaddas = await Yadda.find({ user: { $in: yaddaArr } })
+        .sort([["createdAt", -1]])
+        .populate({
+          path: "user parent",
+          populate: { path: "followers user" },
+        });
+    } else {
+      yaddas = await Yadda.find({})
+        .sort([["createdAt", -1]])
+        .populate({
+          path: "user parent",
+          populate: { path: "followers user" },
+        });
+    }
     res.render("index", {
       title: "Frontpage",
       yaddas,
       user: req.user,
       users: [],
+      tagsOfTheWeek,
     });
   } else {
     res.render("frontpage", {
@@ -102,26 +35,50 @@ exports.frontpage = async (req, res) => {
     });
   }
 };
+exports.frontpageAll = async (req, res) => {
+  let tagsOfTheWeek = await helper.tagsOfTheWeek();
+  let yaddas;
+
+  yaddas = await Yadda.find({})
+    .sort([["createdAt", -1]])
+    .populate({
+      path: "user parent",
+      populate: { path: "followers user" },
+    });
+
+  res.render("index", {
+    title: "Frontpage",
+    yaddas,
+    user: req.user,
+    users: [],
+    tagsOfTheWeek,
+    all: true,
+  });
+};
 
 exports.thread = async (req, res) => {
   const id = req.params.id;
 
   let yadda = await Yadda.findById(id).populate({
-    path: "user",
+    path: "user parent",
+    populate: { path: "followers user" },
   });
+  console.log();
 
   const subYaddas = await Yadda.find({ parent: id }).populate({
-    path: "user",
+    path: "user parent",
+    populate: { path: "followers user" },
   });
 
   let parentYaddas = await yadda.parents(yadda);
-
+  let tagsOfTheWeek = await helper.tagsOfTheWeek();
   res.render("thread", {
     title: "Thread",
     yadda: yadda,
     user: req.user,
     subYaddas,
     parentYaddas,
+    tagsOfTheWeek,
   });
 };
 
@@ -132,15 +89,16 @@ exports.search = async (req, res) => {
   let users = [];
   const regex = { $regex: new RegExp(search, "i") };
 
+  let tagsOfTheWeek = await helper.tagsOfTheWeek();
   switch (type) {
     case "tag":
-      queryParams = { tags: { $in: [regex.$regex] } };
+      queryParams = { tags: { $in: [/*regex.$regex*/ search] } };
 
       yaddas = await Yadda.find(queryParams)
         .sort([["createdAt", -1]])
         .populate({
-          path: "user",
-          populate: { path: "followers" },
+          path: "user parent",
+          populate: { path: "followers user" },
         });
 
       break;
@@ -159,24 +117,23 @@ exports.search = async (req, res) => {
     user: req.user,
     users,
     search: true,
+    tagsOfTheWeek,
   });
 };
 
 exports.settings = async (req, res) => {
+  const profile = await User.findById(req.user._id).populate({
+    path: "followers following",
+    // populate: { path: "followers following" },
+  });
+
   res.render("settings", {
     title: "Settings",
     user: req.user,
+    profile,
   });
 };
 
-// (async () => {
-//   const profile = await User.findOne().populate({
-//     path: "followers following",
-//     populate: { path: "followers following" },
-//   });
-
-//   console.log(profile);
-// })();
 exports.followers = async (req, res) => {
   // let type = req.params.type;
   let id = req.params.id;
@@ -203,9 +160,6 @@ exports.following = async (req, res) => {
       path: "following",
       populate: { path: "followers" },
     });
-  // const users = await User.find({ _id: { $in: profile.following } });
-
-  // profile.followers = await User.countDocuments({ following: { $in: id } });
 
   res.render("following", {
     title: "Following",
@@ -220,7 +174,7 @@ exports.profile = async (req, res) => {
   let id = req.params.id;
   const yaddas = await Yadda.find({ user: id })
     .sort([["createdAt", -1]])
-    .populate("user");
+    .populate({ path: "user parent", populate: { path: "user" } });
 
   let profile = await User.findById(id).populate("followers");
 
@@ -231,77 +185,4 @@ exports.profile = async (req, res) => {
     yaddas,
     users: [],
   });
-};
-
-exports.profilePic = async (req, res) => {
-  try {
-    let img = await cld.upload(req);
-
-    let image = img.public_id;
-
-    await User.findByIdAndUpdate(req.user._id, { image: image });
-
-    req.flash("success_msg", "Profile picture was changed");
-    res.redirect("/settings");
-  } catch (err) {
-    console.log(err);
-    req.flash("error_msg", "Something went wrong");
-    res.redirect("/settings");
-  }
-};
-
-exports.theme = async (req, res) => {
-  try {
-    await User.findByIdAndUpdate(req.user._id, {
-      darkTheme: req.body.theme === "dark",
-    });
-    req.flash("success_msg", "Theme was changed");
-    res.redirect("/settings");
-  } catch (err) {
-    console.log(err);
-    req.flash("error_msg", "Something went wrong");
-    res.redirect("/settings");
-  }
-};
-
-exports.name = async (req, res) => {
-  try {
-    await User.findByIdAndUpdate(req.user._id, {
-      firstname: req.body.firstname,
-      lastname: req.body.lastname,
-    });
-    req.flash("success_msg", "Name was changed");
-    res.redirect("/settings");
-  } catch (err) {
-    console.log(err);
-    req.flash("error_msg", "Something went wrong");
-    res.redirect("/settings");
-  }
-};
-
-exports.follow = async (req, res) => {
-  try {
-    let id = req.params.id;
-    // if (id === req.user._id.toString()) throw "Can't follow self";
-
-    let user2follow = await User.findById(id);
-    if (!user2follow) throw "user doesn't exist";
-
-    let user = await User.findById(req.user._id);
-    if (user.following.includes(id)) {
-      index = user.following.indexOf(id);
-      user.following.splice(index, 1);
-    } else {
-      user.following.push(id);
-    }
-
-    await user.save();
-
-    req.flash("success_msg", `Now following ${user2follow.username}`);
-    res.redirect("/");
-  } catch (err) {
-    console.log(err);
-    req.flash("error_msg", "Something went wrong");
-    res.redirect("/");
-  }
 };

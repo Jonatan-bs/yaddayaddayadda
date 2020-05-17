@@ -1,3 +1,13 @@
+// //// Remove whitespace from username
+window.addEventListener("load", () => {
+  let input = document.getElementById("username");
+  if (input) {
+    input.addEventListener("input", () => {
+      input.value = input.value.replace(/\W/g, "_");
+    });
+  }
+});
+
 //////////////
 //SEARCH BAR
 //////////////
@@ -82,30 +92,18 @@ window.addEventListener("load", () => {
 
       reader.readAsDataURL(e.target.files[0]);
     }
-
-    // const form = document.getElementById("imageForm");
-    // const formData = new FormData(form);
-    // fetch("http://localhost:3000/tempimageCloudinary", {
-    //   method: "post",
-    //   body: formData,
-    // })
-    //   .then((res) => {
-    //     return res.json();
-    //   })
-    //   .then((res) => {
-    //     console.log(res);
-    //     if (res.success) {
-    //       // let name = this.props.image.name ? this.props.image.name : "";
-    //       // this.props.callback({ public_id: res.public_id, name: name });
-    //     } else {
-    //       // this.props.callback(res);
-    //     }
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //     // this.setState({ uploading: false });
-    //     // this.props.callback(err);
-    //   });
-    // // document.getElementById("imageForm").submit();
   });
+});
+
+// messagebox
+window.addEventListener("load", () => {
+  let box = document.querySelector("p.message");
+  if (box) {
+    setTimeout(() => {
+      box.classList.add("hide");
+      setTimeout(() => {
+        box.classList.add("hidden");
+      }, 1000);
+    }, 2000);
+  }
 });

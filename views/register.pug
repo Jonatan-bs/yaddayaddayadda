@@ -12,15 +12,15 @@ block content
           h2 Register
           form(action='/user/register' method='post')
             label(for='username') Username:
-            input#username.form-control(type='text', placeholder='username' name='username' value=`${ username ? username: '' }`)
+            input#username.form-control(type='text', placeholder='username' name='username' value=`${ username ? username: '' }` required=true)
             label(for='firstname') Firstname:
-            input#firstname.form-control(type='text', placeholder='first name' name='firstname' value=`${ firstname ? firstname: '' }`)
+            input#firstname.form-control(type='text', placeholder='first name' name='firstname' value=`${ firstname ? firstname: '' }` required=true)
             label(for='lastname') Lastname:
-            input#lastname.form-control(type='text', placeholder='last name' name='lastname' value=`${ lastname ? lastname: '' }`)
+            input#lastname.form-control(type='text', placeholder='last name' name='lastname' value=`${ lastname ? lastname: '' }` required=true)
             label(for='email') Email:
-            input#email.form-control(type='email', placeholder='name@email.com' name='email' value=`${ email ? email: '' }`)
+            input#email.form-control(type='email', placeholder='name@email.com' name='email' value=`${ email ? email: '' }` required=true)
             label(for='pw') Password:
-            input#pw.form-control(type='password' name='password' value=`${ password ? password: '' }`)
+            input#pw.form-control(type='password' name='password' value=`${ password ? password: '' }` required=true)
             label(for='pw2') Confirm Password:
-            input#pw2.form-control(type='password' name='password2' value=`${ password2 ? password2: '' }`)
+            input#pw2.form-control(type='password' name='password2' value=`${ password2 ? password2: '' }` required=true)
             button(type='submit') Sign up

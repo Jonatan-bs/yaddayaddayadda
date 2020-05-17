@@ -1,424 +1,47 @@
-body {
+body,
+html {
   margin: 0;
   font-family: Segoe UI;
   background: #222;
-  color: #ddd;
-}
-
-nav {
-  background: #F5C4A3;
-  display: flex;
-  justify-content: space-between;
-  height: 70px;
-  position: fixed;
-  top: 0;
-  width: 100%;
-}
-
-.logo {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   height: 100%;
-  width: 33%;
-  text-align: left;
+  color: #cacaca;
+}
+a,
+.filter {
+  color: #cacaca;
 }
 
-.logo img {
-  width: 90px;
-  padding-left: 25px;
+hr {
+  border-color: #c54e4f;
 }
 
-.navmiddle {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  width: 33%;
-  text-align: right;
+.yaddaUser a,
+.settingsbox button,
+.followingfollowers a,
+nav ul li a,
+.followbox a,
+.likesandreplies h3,
+.writingSearch input:nth-of-type(2) {
+  color: #cacaca;
+}
+.follow button.unfollow {
+  background: #0b0b0b;
 }
 
-nav ul {
-  list-style: none;
-  display: flex;
-    text-align: right;
-  justify-content: flex-end;
+.mentionsbox,
+.searchbar,
+.writingYadda,
+.sponsoredYadda,
+.profilebox,
+.settingsbox,
+.followbox,
+.HighlightYadda,
+.writingSearch label {
+  background: #191919;
 }
 
-nav ul li {
-  padding-right: 20px;
-  font-weight: 700;
-  text-align: right;
-}
-
-nav ul li:last-child {
-  padding-right: 35px;
-  font-weight: 700;
-}
-
-nav ul li a {
-  text-decoration: none;
-  color:#222;
-  text-align: right;
-}
-
-nav ul li a:hover {
-  color: #666;
-  transition: 0.5s;
-}
-
-.profilepic {
-  width: 33%;
-  text-align: center;
-  padding-top: 20px;
-}
-
-.profilepic img {
-  width: ;
-  border-radius: 50%;
-  border: 5px solid #F5C4A3;
-  width: 80px;
-  height: 80px;
-}
-
-.mainpage {
-  width: 1035px;
-  margin: 0 auto;
-  margin-top: 120px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.profilementions {
-  width: 280px;
-}
-
-.profilebox {
-  width: 280px;
-  background: #444;
-  height: 428px;
-  border-radius: 5px;
-  position: fixed;
-}
-
-.pPicture {
-  text-align: center;
-  padding-top: 20px;
-}
-
-.pPicture img {
-  width: 220px;
-  height: 220px;
-  margin: 0 auto;
-  border-radius: 50%;
-  border: 7px solid #F5C4A3;
-}
-
-.profileName {
-  width: 220px;
-  margin: 0 auto;
-}
-
-.profileName h2 {
-  font-size: 22px;
-  margin: 0;
-  margin-top: 10px;
-  font-weight: 700;
-}
-
-.profileName h3 {
-  margin: 0;
-  color: #F5C4A3;
-  font-size: 18px;
-  font-weight: 700;
-}
-
-.followingfollowers {
-  width: 220px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  text-align: center;
-}
-
-.followingfollowers h4 {
-  margin: 0;
-  margin-top: 20px;
-  font-size: 15px;
-}
-
-.followingfollowers h5 {
-  margin: 0;
-  font-size: 30px;
-}
-
-.feed {
-  width: 740px;
-}
-
-.searchbar {
-  width: 740px;
-  height: 62px;
-  background: #444;
-  border-radius: 5px;
-  margin-bottom: 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.writingSearch {
-  width: 714px;
-  margin: 0 auto;
+input,
+textarea {
   background: #222;
-  height: 45px;
-  border-radius: 5px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.writingSearch div {
-  width: 55px;
-  height: 45px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #F5C4A3;
-  border-radius: 5px 0px 0px 5px;
-  font-size: 20px;
-  font-weight: 700;
-  color: #222;
-}
-
-.writingSearch input {
-  width: 644px;
-  height: 45px;
-  border: 0px;
-  padding: 0;
-  margin: 0;
-  padding-left: 15px;
-  font-family: Segoe UI;
-  font-size: 15px;
-  font-weight: 700;
-  background: #222;
-  color: #999;
-}
-
-.writingYadda {
-  width: 740px;
-  height: 138px;
-  background: #444;
-  border-radius: 5px;
-  margin-bottom: 15px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.writingYaddaInner {
-  width: 714px;
-  margin: 0 auto;
-  height: 80px;
-  background: #222;
-  border-radius: 5px;
-}
-
-.writingYaddaInner textarea {
-  width: 694px;
-  height: 60px;
-  padding: 10px;
-  resize: none;
-  border: 0px;
-  border-radius: 5px;
-  font-family: Segoe UI;
-  font-size: 16px;
-  background: #222;
-  color: #999;
-}
-
-.tagsandsend {
-  width: 714px;
-  height: 27px;
-  display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
-}
-
-.addtags {
-  width: 528px;
-  height: 27px;
-  background: #222;
-  border-radius: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.addtags input {
-  width: 518px;
-  height: 17px;
-  background: #222;
-  border-radius: 5px;
-  border: 0;
-  padding: 5px;
-  font-family: Segoe UI;
-  font-family: 15px;
-  font-weight: 700;
-  color: #999
-}
-
-.postYadda {
-  display: flex;
-  width: 160px;
-  justify-content: space-between;
-}
-
-.postYadda img {
-  height: 27px;
-  width: 27px;
-}
-
-.postYadda button {
-  width: 120px;
-  height: 27px;
-  border: 0;
-  background: #F5C4A3;
-  border-radius: 5px;
-  font-weight: 700;
-  font-family: Segoe UI;
-  font-size: 13px;
-  color: #222
-}
-
-.Yadda {
-  width: 740px;
-  border-radius: 5px;
-  margin-bottom: 15px;
-  display: flex;
-  justify-content: space-around;
-}
-
-.sponsoredYadda {
-  width: 740px;
-  background: #444;
-  border-radius: 5px;
-  margin-bottom: 15px;
-  display: flex;
-  justify-content: space-around;
-}
-
-.profilePicYadda {
-  width: 75px;
-  padding-top: 10px;
-}
-
-.profilePicYadda img {
-  width: 69px;
-  height: 69px;
-  border-radius: 50%;
-  border: 3px solid #F5C4A3;
-}
-
-.yaddaBox {
-  width: 623px;
-}
-
-.yaddaUser {
-  padding-top: 10px;
-}
-
-.yaddaUser a {
-  text-decoration: none;
-  color: #ddd;
-}
-
-.yaddaUser h2 {
-  margin: 0;
-  font-size: 17px;
-  display: inline;
-}
-
-.yaddaUser h3 {
-  margin: 0;
-  font-size: 15px;
-  color: #F5C4A3;
-}
-
-.yaddaUser span {
-  font-size: 15px;
-  color: #F5C4A3;
-  font-weight: 700
-}
-
-.yaddaText p {
-  margin: 0;
-  font-size: 17px;
-  margin-bottom: 10px;
-}
-
-.yaddaImg {
-  width: 603px;
-  border: 5px solid #F5C4A3;
-  margin-bottom: 5px;
-  border-radius: 5px;
-}
-
-.sponsoredYadda .yaddaImg:hover {
-  border: 5px solid #999;
-  transition: 0.2s;
-}
-
-.yaddaTags {
-  margin-bottom: 10px;
-}
-
-.yaddaTags a {
-  text-decoration: none;
-  color: #F5C4A3
-}
-
-.yaddaTags span {
-  color: #F5C4A3;
-  font-size: 15px;
-  margin-right: 10px;
-  font-weight: 700;
-}
-
-.yaddaInfo {
-  display: flex;
-  justify-content: space-between;
-  width: 623px
-}
-
-.likesandreplies {
-  display: flex;
-  justify-content: space-between;
-  width: 190px;
-  margin-bottom: 20px;
-}
-
-.likesandreplies div {
-  display: flex;
-  justify-content: space-between;
-}
-
-.likesandreplies h3 {
-  margin: 0;
-  font-size: 15px;
-  font-weight: 700;
-}
-
-.likesandreplies img {
-  width: 20px;
-  height: 20px;
-  margin-right: 5px;
-}
-
-.yaddaDate h3{
-  text-transform: uppercase;
-  margin: 0;
-  font-size: 15px;
-  font-weight: 700;
+  color: #cacaca;
 }

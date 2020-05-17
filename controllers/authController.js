@@ -1,7 +1,7 @@
 const bcrypt = require("bcryptjs");
 const passport = require("passport");
 const mongoose = require("mongoose");
-const sendAuthMail = require("./handlers/authMail");
+const sendAuthMail = require("../config/authMail");
 const jwt = require("jsonwebtoken");
 
 const User = require("../models/User");
@@ -36,9 +36,12 @@ exports.postRegister = async function (req, res) {
     errors.push({ msg: "Passwords do not match" });
   }
 
-  // if (password.length < 9) {
-  //   errors.push({ msg: "Password must be at least 9 characters" });
-  // }
+  if (password.length < 9) {
+    errors.push({ msg: "Password must be at least 9 characters" });
+  }
+  if (username.split(" ").length > 1) {
+    errors.push({ msg: "Username can't have spaces" });
+  }
 
   if (errors.length > 0) {
     res.render("register", {

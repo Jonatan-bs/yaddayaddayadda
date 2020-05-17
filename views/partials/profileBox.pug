@@ -1,7 +1,16 @@
 .profilebox
+        if user._id.toString()!==profile._id.toString()
+          .follow
+              if user.following.includes(profile._id)
+                form(action=`/follow/${profile._id}` method='POST')
+                  button.unfollow unfollow
+              else
+                form(action=`/follow/${profile._id}` method='POST')
+                  button follow
+                        
         .pPicture
             if profile.image
-              img( alt='' style=`background-image:url(https://res.cloudinary.com/kuko/w_80/${profile.image})`)
+              img( alt='' style=`background-image:url(https://res.cloudinary.com/kuko/w_234/${profile.image})`)
             else
               img(style="background-image:url('/../images/profile.jpg')" alt='')
         .profileName

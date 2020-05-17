@@ -1,8 +1,7 @@
 .mentionsbox
   h2 Tags of the week
   div
-    a(href='#') #pizza
-    a(href='#') #liked
-    a(href='#') #loveit
-    a(href='#') #faceme
-    a(href='#') #lego
+    each tag in tagsOfTheWeek
+      a(href=`/search/tag/${tag}`) 
+        = "#" + tag
+

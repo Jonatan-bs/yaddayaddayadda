@@ -11,7 +11,7 @@ block content
             h2 Login
             form(action='/user/login' method='post')
               label(for='email') Email:
-              input#email.form-control(type='email', placeholder='name@email.com' name='email' value=`${ email ? email: '' }`)
+              input#email.form-control(type='email', placeholder='name@email.com' name='email' value=`${ email ? email: '' }` required=true)
               label(for='pw') Password:
-              input#pw.form-control(type='password' name='password' value=`${ password ? password: '' }`)
+              input#pw.form-control(type='password' name='password' value=`${ password ? password: '' }` required=true)
               button(type='submit') Login
