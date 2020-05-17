@@ -173,10 +173,9 @@ mixin yadda(yadda,type)
             if yadda.parent    
               .answer
                 p Answer to
-                a(href=`/profile/${yadda.parent.user._id}`)  
+                a(href=`/thread/${yadda.parent._id}`)  
                   = `@${yadda.parent.user.username}`
-                p   >  
-                a(href=`/thread/${yadda.parent._id}`) yadda 
+    
              
           .yaddaText
             p

@@ -385,14 +385,14 @@ nav ul li a {
 }
 
 .yaddaUser {
-  padding-top: 25.5px;
-  padding-bottom: 29.5px;
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
 
-.yaddaUser.parent {
+/* .yaddaUser.parent {
   padding-top: 20px;
   padding-bottom: 20px;
-}
+} */
 
 .yaddaUser a {
   text-decoration: none;
