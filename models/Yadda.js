@@ -14,6 +14,7 @@ const YaddaSchema = new mongoose.Schema(
     text: {
       type: String,
       required: true,
+      maxlength: 167,
     },
     image: {
       type: String,

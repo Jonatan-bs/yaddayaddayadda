@@ -4,7 +4,7 @@ mixin addYadda(parentID)
       .writingYadda
           form(action='/yadda' method='POST' enctype="multipart/form-data")
             .writingYaddaInner
-              textarea(name='text' rows='8' cols='80' placeholder=`Write comment to @${yadda.user.username}'s yadda...`)
+              textarea(name='text' rows='8' cols='80' placeholder=`Write comment to @${yadda.user.username}'s yadda...` maxlength="167"  required=true)
               #imgPreview.hidden
             .tagsandsend
               .addtags
@@ -21,7 +21,7 @@ mixin addYadda(parentID)
           .writingYadda
               form(action='/yadda' method='POST' enctype="multipart/form-data")
                 .writingYaddaInner
-                  textarea(name='text' rows='8' cols='80' placeholder='Whats on your mind?')
+                  textarea(name='text' rows='8' cols='80' placeholder='Whats on your mind?' maxlength="167"  required=true)
                   #imgPreview.hidden
                 .tagsandsend
                   .addtags
