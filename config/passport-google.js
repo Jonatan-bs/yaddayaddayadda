@@ -15,6 +15,7 @@ passport.use(
         done(null, user);
       } else {
         return done(null, false, { message: "Cannot register with google+" });
+
         // try {
         //   const newUser = await new User({
         //     firstname: profile.name.givenName,
