@@ -10,7 +10,8 @@ const session = require("express-session");
 const bodyParser = require("body-parser");
 
 // Passport Config
-require("./config/passport")(passport);
+require("./config/passport");
+require("./config/passport-google");
 
 let MONGODB_URI = `mongodb+srv://yadda:${process.env.ATLAS_PASSWORD}@yadda-lxawk.mongodb.net/test?retryWrites=true&w=majority`;
 
@@ -73,4 +74,5 @@ app.use("/", require("./routes/index.js"));
 app.use(function (req, res, next) {
   res.status("404").send({ message: "invalid request" });
 });
+
 module.exports = app;

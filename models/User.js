@@ -15,6 +15,9 @@ const UserSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
+    googleId: {
+      type: String,
+    },
     firstname: {
       type: String,
       required: true,

@@ -124,7 +124,6 @@ exports.search = async (req, res) => {
 exports.settings = async (req, res) => {
   const profile = await User.findById(req.user._id).populate({
     path: "followers following",
-    // populate: { path: "followers following" },
   });
 
   res.render("settings", {
